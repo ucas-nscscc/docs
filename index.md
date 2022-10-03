@@ -14,3 +14,7 @@ description: 本文档旨在记录每次培训的内容，方便大家进行回�
 ## 关于竞赛小组
 
 本届“龙芯杯”竞赛小组的 3 名主要负责人为 [hm](https://github.com/MiaoHao-oops)，[lrm](https://github.com/Seoyoung-V) 和 [xth](https://github.com/daidailindaiyu)，他们计划在本学期基于 [SpinalHDL](https://spinalhdl.github.io/SpinalDoc-RTD/master/index.html) 搓一个能跑 Linux 的 LoongArch32r 超标量 CPU，为后来者探探路，祝他们成功。
+
+## 推荐学习资料
+
++ [“一生一芯”计划](https://ysyx.oscc.cc/)
