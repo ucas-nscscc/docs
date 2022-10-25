@@ -49,7 +49,7 @@ shell 是我们与 Linux 操作系统交互的直接方式，因此正确地使�
 
 1. 获得提交记录比较简单，只需要
 
-```
+```sh
 $ git log
 ```
 
@@ -72,7 +72,7 @@ Date:   Tue Oct 18 22:01:35 2022 +0800
 
 发现有一定的规律：所有 commit SHA 前面都有一个 “commit” ，这个任务很简单，通过搜索“shell 字符串匹配”等类似关键字就可以找到解决方法。我们可以使用 `grep` 工具提取：
 
-```
+```sh
 $ git log | grep commit
 commit 12f057bec6902814583350c85358bb73c0e0a837
 commit 76a02fae60e4246128f763866f5b3011225916ff
@@ -87,7 +87,7 @@ commit edf1881e261f98a57fe7941c3496d78606203f16
 
 可以发现，中间和结尾的地方出现了一些我们不想要的东西，这时候可以使用更加强大的[正则表达式](https://www.runoob.com/regexp/regexp-tutorial.html)来提取：
 
-```
+```sh
 $ git log | grep '^commit [a-z|0-9]'
 commit 12f057bec6902814583350c85358bb73c0e0a837
 commit 76a02fae60e4246128f763866f5b3011225916ff
@@ -100,7 +100,7 @@ commit edf1881e261f98a57fe7941c3496d78606203f16
 
 现在离成功还差一步，也就是去掉每行行首的 “commit”，通过类似的方法，将这个任务抽象成“获取每行字符串的第二个字段”便可以找到解决方法。使用 `awk` 命令：
 
-```
+```sh
 $ git log | grep '^commit [a-z|0-9]' | awk '{print $2}'
 12f057bec6902814583350c85358bb73c0e0a837
 76a02fae60e4246128f763866f5b3011225916ff
