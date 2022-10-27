@@ -332,6 +332,7 @@ int main()
 为了能够自定义程序的布局，我们需要编写一个链接脚本：
 
 ```ld
+# bare-metal.ld
 SECTIONS
 {
     . = 0x1c000000;             # 指定起始地址
@@ -376,6 +377,7 @@ la      $sp, bootstacktop
 我们可以编写一个 Makefile 将整个流程连接起来：
 
 ```Makefile
+# Makefile
 CROSSTOOL:=loongarch32r-linux-gnusf-
 CC       :=$(CROSSTOOL)gcc
 OBJCOPY  :=$(CROSSTOOL)objcopy
