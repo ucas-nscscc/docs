@@ -335,22 +335,22 @@ int main()
 # bare-metal.ld
 SECTIONS
 {
-    . = 0x1c000000;             # 指定起始地址
-    .text : {                   # 所有 text 段紧跟其后
-        _start = .;             # _start 标号放在最前面
+    . = 0x1c000000;             /* 指定起始地址 */
+    .text : {                   /* 所有 text 段紧跟其后 */
+        _start = .;             /* _start 标号放在最前面 */
         *(.text)
     }
-    .rodata : {                 # 所有 rodata 段在 text 段后面
+    .rodata : {                 /* 所有 rodata 段在 text 段后面 */
         *(.rodata)
     }
 
-    __bss_start = .;            # 定义一个标号指向 bss 的开始位置
-    .bss : { *(.bss) }          # 所有 bss 段在 rodata 段后面
-    __bss_end = .;              # 定义一个标号指向 bss 的结束位置
+    __bss_start = .;            /* 定义一个标号指向 bss 的开始位置 */
+    .bss : { *(.bss) }          /* 所有 bss 段在 rodata 段后面 */
+    __bss_end = .;              /* 定义一个标号指向 bss 的结束位置 */
 
-    . = ALIGN(0x1000);          # 要求下一个标号开始的位置对齐到 0x1000 (4KB)
-    bootstack = .;              # 定义一个标号指向栈底
-    bootstacktop = . + 0x1000;  # 定义一个标号指向栈顶
+    . = ALIGN(0x1000);          /* 要求下一个标号开始的位置对齐到 0x1000 (4KB) */
+    bootstack = .;              /* 定义一个标号指向栈底 */
+    bootstacktop = . + 0x1000;  /* 定义一个标号指向栈顶 */
 }
 ```
 
