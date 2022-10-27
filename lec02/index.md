@@ -325,7 +325,7 @@ int main()
 }
 ```
 
-之后我们便可以使用 C 语言操作这些外设了。
+之后我们便可以使用 C 语言操作这些外设了，如果你还不清楚什么 C 语言如何对应到 `ld/st` 指令，请复习《计算机体系结构》。
 
 ### 链接脚本
 
@@ -363,14 +363,14 @@ la      $sp, bootstacktop
 
 ### 二进制文件与 coe 文件
 
-为了将程序直接加载到 FPGA 上的 RAM 中，我们需要将程序转化为 Vivado 能识别的 `.coe` 文件，coe 文件包含了一些描述头和 RAM 的二进制内容，我们可以使用课程环境下的 `convert` 工具将二进制文件转化为 coe 文件。
+为了将程序直接加载到 FPGA 上的 RAM 中，我们需要将程序转化为 Vivado 能识别的 `.coe` 文件，其中包含了一些描述头和载入 RAM 的二进制内容，我们可以使用课程环境下的 `convert` 工具将二进制文件转化为 coe 文件。
 
 整体的转换流程如下：
 
 ```
   start.S   gcc              objcopy           convert
   main.c   ----->  main.elf  ----->  main.bin  ----->  inst_ram.coe
-source code        elf file         binary file         coe file
+(source code)     (elf file)       (binary file)        (coe file)
 ```
 
 我们可以编写一个 Makefile 将整个流程连接起来：
@@ -403,3 +403,13 @@ test.S: main.elf
 clean:
 	rm -rf main.elf main.bin test.S inst_ram.coe inst_ram.mif rom.vlog convert
 ```
+
+在使用 gcc 编译程序时，使用了一个特殊的选项 `-nostdlib`，顾名思义，该选项的含义是不使用标准库。这是因为对于裸机程序而言，没有操作系统的支持，我们是无法使用标准库的。
+
+{% hint style="info" %}
+
+#### 练习
+
+1. 编写一个裸机程序，实现 16 个单色 LED 的跑马灯功能，要求：16个单色 LED 从右到坐依次点亮，每个灯点亮 1s 后立刻切换到下一个灯。
+
+{% endhint %}
