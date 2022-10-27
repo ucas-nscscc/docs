@@ -376,10 +376,10 @@ la      $sp, bootstacktop
 我们可以编写一个 Makefile 将整个流程连接起来：
 
 ```Makefile
-CROSSTOOL:= loongarch32r-linux-gnusf-
-CC       := $(CROSSTOOL)gcc
-OBJCOPY  := $(CROSSTOOL)objcopy
-OBJDUMP  := $(CROSSTOOL)objdump
+CROSSTOOL:=loongarch32r-linux-gnusf-
+CC       :=$(CROSSTOOL)gcc
+OBJCOPY  :=$(CROSSTOOL)objcopy
+OBJDUMP  :=$(CROSSTOOL)objdump
 
 .PHONY: clean
 
