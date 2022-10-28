@@ -415,9 +415,9 @@ clean:
 1. 打开工程，使用上面产生的 `inst_ram.coe` 来 recustomize inst_ram。
 2. 使用上面产生的 `inst_ram.coe` 来 recustomize data_ram。
 
-> 由于目前我们使用的是类 SRAM 总线，SOC 为“[哈佛结构](https://en.wikipedia.org/wiki/Harvard_architecture)”，`inst_ram` 和 `data_ram` 分开，因此需要将 ELF 文件中的代码段加载到 `inst_ram` 中，将数据段加载到 `data_ram` 中。因为目前的 COE 文件同时提取了 ELF 文件的代码段和数据段，所以我们只需要将 COE 文件同时加载到两个 RAM 中即可。
+    > 由于目前我们使用的是类 SRAM 总线，SOC 为“[哈佛结构](https://en.wikipedia.org/wiki/Harvard_architecture)”，`inst_ram` 和 `data_ram` 分开，因此需要将 ELF 文件中的代码段加载到 `inst_ram` 中，将数据段加载到 `data_ram` 中。因为目前的 COE 文件同时提取了 ELF 文件的代码段和数据段，所以我们只需要将 COE 文件同时加载到两个 RAM 中即可。
 
-> 切换到 AXI 总线后，SOC 就变成了“[冯·诺依曼结构](https://en.wikipedia.org/wiki/Von_Neumann_architecture)”，`inst_ram` 和 `data_ram` 合为了一个 `axi_ram`，因此只需要将 COE 文件加载到这个 RAM 中即可。
+    > 切换到 AXI 总线后，SOC 就变成了“[冯·诺依曼结构](https://en.wikipedia.org/wiki/Von_Neumann_architecture)”，`inst_ram` 和 `data_ram` 合为了一个 `axi_ram`，因此只需要将 COE 文件加载到这个 RAM 中即可。
 
 3. 生成比特流，烧入到实验箱中，观察结果。
 
