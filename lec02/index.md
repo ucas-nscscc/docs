@@ -334,7 +334,7 @@ int main()
 为了能够自定义程序的布局，我们需要编写一个链接脚本：
 
 ```ld
-# bare-metal.ld
+/* bare-metal.ld */
 SECTIONS
 {
     . = 0x1c000000;             /* 指定起始地址 */
