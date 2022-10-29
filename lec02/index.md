@@ -338,11 +338,13 @@ SECTIONS
 {
     . = 0x1c000000;             /* 指定起始地址 */
     .text : {                   /* 所有 text 段紧跟其后 */
-        _start = .;             /* _start 标号放在最前面 */
         *(.text)
     }
     .rodata : {                 /* 所有 rodata 段在 text 段后面 */
         *(.rodata)
+    }
+    .data : {                   /* 所有 data 段在 rodata 段后面 */
+        *(.data)
     }
 
     __bss_start = .;            /* 定义一个标号指向 bss 的开始位置 */
