@@ -316,8 +316,7 @@ SOC 中的指令、数据 RAM 大小均为 1MB，都映射到地址段 `0x1c00_0
 ```S
 # start.S
 ...
-la      $t0, main
-jirl    $ra, $t0, 0
+bl main
 ```
 ```c
 // main.c
