@@ -12,7 +12,7 @@ description: 本文档旨在记录每次培训的内容，方便大家进行回�
 
 - 秋季学期：对于大三的同学而言，秋季学期中包含体系结构和操作系统两门研讨课，这一学期的培训内容将专注于基础设施的使用，并对这两门课程进行一定程度上内容的延伸。
   - [lec 01 - “龙芯杯”大赛介绍](https://ucas-nscscc.github.io/slides/lec01.html#/):arrow_upper_right: | [第一次培训视频（上）](https://www.bilibili.com/video/BV1Cm4y1c73E/?spm_id_from=333.999.0.0&vd_source=86cabfbbc4034553dcff05a243d822c0):arrow_upper_right: | [第一次培训视频（下）](https://www.bilibili.com/video/BV1K8411e7sp/?spm_id_from=333.999.0.0&vd_source=86cabfbbc4034553dcff05a243d822c0):arrow_upper_right:
-  - Linux 操作系统漫谈 | [Linux 脚本练习讲解视频](https://www.bilibili.com/video/BV1xD4y1b7v9/?vd_source=86cabfbbc4034553dcff05a243d822c0):arrow_upper_right:
+  - Linux 操作系统漫谈 | [Shell 脚本练习讲解视频](https://www.bilibili.com/video/BV1xD4y1b7v9/?vd_source=86cabfbbc4034553dcff05a243d822c0):arrow_upper_right:
   - lec 02 - git 协作，SOC 与裸机程序 | [第二次培训视频](https://www.bilibili.com/video/BV1v84y1i7RK/?spm_id_from=333.999.0.0&vd_source=86cabfbbc4034553dcff05a243d822c0):arrow_upper_right:
 - 春季学期：对于准备参赛的同学而言，整个设计将从本学期启动，这一学期（包括寒假）的培训将专注于超标量体系结构、操作系统移植等进阶内容，帮助同学们冲击更高的名次。
 
