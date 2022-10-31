@@ -9,3 +9,4 @@
 - [杂项](misc/index.md)
 	- [Linux 操作系统杂谈](misc/linux.md)
 	- [对于 lec 02 的一些补充](misc/lec02.md)
+	- [Linux Vivado 使用过程的问题解决](misc/vivado.md)
