@@ -19,6 +19,14 @@ $ source ~/.bashrc
 $ sudo apt install libtinfo5
 ```
 
+## 运行仿真时报错 Failed to compile generated C file *.c
+
+这是由于缺少库 libncurses5 导致的。使用 `apt` 安装即可：
+
+```
+$ sudo apt install libncurses5
+```
+
 ## Hardware Manager 无法连接开发板
 
 需要安装 FPGA cable 驱动程序：
