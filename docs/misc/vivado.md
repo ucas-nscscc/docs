@@ -1,10 +1,10 @@
-# 在 Linux 上安装 Vivado 可能遇到的问题
+# 在 Linux 上使用 Vivado 可能遇到的问题
 
 ## 未将 Vivado 添加至环境变量
 
 在使用 `xsetup` 安装后，`vivado` 是没有被添加到环境变量中的，因此需要手动添加：
 
-```
+```sh
 $ echo 'export PATH=<Vivado Install>/bin:$PATH' >> ~/.bashrc
 $ source ~/.bashrc
 ```
@@ -15,7 +15,7 @@ $ source ~/.bashrc
 
 使用 `apt` 工具安装缺少的库即可：
 
-```
+```sh
 $ sudo apt install libtinfo5
 ```
 
@@ -23,7 +23,7 @@ $ sudo apt install libtinfo5
 
 这是由于缺少库 libncurses5 导致的。使用 `apt` 安装即可：
 
-```
+```sh
 $ sudo apt install libncurses5
 ```
 
@@ -31,7 +31,7 @@ $ sudo apt install libncurses5
 
 需要安装 FPGA cable 驱动程序：
 
-```
+```sh
 $ cd <Vivado Install>/data/xicom/cable_drivers/lin64/install_script/install_drivers
 $ sudo ./install_drivers
 ```

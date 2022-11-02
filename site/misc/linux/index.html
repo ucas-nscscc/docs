@@ -1,0 +1,720 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+    
+    
+      
+        <title>Linux 操作系统杂谈 - UCAS NSCSCC</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="UCAS NSCSCC" class="md-header__button md-logo" aria-label="UCAS NSCSCC" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UCAS NSCSCC
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux 操作系统杂谈
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="UCAS NSCSCC" class="md-nav__button md-logo" aria-label="UCAS NSCSCC" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    UCAS NSCSCC
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        NSCSCC 2023
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lec01/" class="md-nav__link">
+        Lec 01 - “龙芯杯”大赛介绍
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lec02/" class="md-nav__link">
+        Lec 02 - git 协作，SOC 与裸机程序
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          杂项
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="杂项" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          杂项
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Linux 操作系统杂谈
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Linux 操作系统杂谈
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux_1" class="md-nav__link">
+    Linux 发行版
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-terminal" class="md-nav__link">
+    Shell 与 Terminal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    如何正确地使用 shell
+  </a>
+  
+    <nav class="md-nav" aria-label="如何正确地使用 shell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unix" class="md-nav__link">
+    对于 Unix 哲学的思考
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    例子
+  </a>
+  
+    <nav class="md-nav" aria-label="例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    通过管道组合简单任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell_1" class="md-nav__link">
+    利用 shell 脚本将命令顺序保存下来
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    练习
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lec02/" class="md-nav__link">
+        对于 lec 02 的一些补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vivado/" class="md-nav__link">
+        在 Linux 上使用 Vivado 可能遇到的问题
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux_1" class="md-nav__link">
+    Linux 发行版
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-terminal" class="md-nav__link">
+    Shell 与 Terminal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    如何正确地使用 shell
+  </a>
+  
+    <nav class="md-nav" aria-label="如何正确地使用 shell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unix" class="md-nav__link">
+    对于 Unix 哲学的思考
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    例子
+  </a>
+  
+    <nav class="md-nav" aria-label="例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    通过管道组合简单任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell_1" class="md-nav__link">
+    利用 shell 脚本将命令顺序保存下来
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    练习
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="linux">Linux 操作系统漫谈</h1>
+<h2 id="linux_1">Linux 发行版</h2>
+<p>当我们尝试安装一个 Linux 操作系统时，常常面临许多选择：<a href="https://ubuntu.com">ubuntu</a>、<a href="https://www.deepin.org/index/zh">deepin</a>、<a href="https://manjaro.org">manjaro</a> 等等，这些选择便是不同的 Linux 发行版（Linux Distribution）。一个 Linux 发行版可以视为<strong>一系列软件的集合</strong>，其中核心的软件包括：</p>
+<ul>
+<li><a href="https://www.kernel.org/">Linux 内核</a></li>
+<li>shell，一个典型的例子是 <a href="https://www.gnu.org/software/bash/">bash</a></li>
+</ul>
+<p>通常情况下，一个发行版中还会包括安装工具，帮助用户将其中包含的软件安装到硬盘上。这些安装工具和软件被打包成 <code>.iso</code> 格式的光盘映像文件，在安装时，首先将其烧录到 U 盘中，然后进入固件选择 U 盘启动，便可以进入发行版的安装界面。</p>
+<h2 id="shell-terminal">Shell 与 Terminal</h2>
+<p>在计算机的远古时代，硬件资源十分昂贵，因此通常是一台主机连接到许多<a href="http://www.it.uu.se/education/course/homepage/os/vt18/images/module-0/linux/shell-and-terminal/DEC-VT100-terminal.jpg"><strong>硬件终端</strong></a>上，用户通过终端与主机进行交互。</p>
+<p>用户在终端中看到所运行的程序则是 shell，通过在 shell 中输入命令，用户便可以获取操作系统所提供的服务。</p>
+<p>对于现代计算机，硬件成本大幅下降，几乎每人都有一至多台计算机，因此终端也不必以硬件形式存在，并发展为了<strong>软件终端</strong>。当我们打开终端窗口，其中运行的程序仍然是 shell，软件终端模拟了硬件终端的功能，因此它也被称为<strong>终端模拟器</strong>。</p>
+<p>总结而言，终端提供了一个用户与 shell 的交互平台，用户利用终端项 shell 发出命令，由 shell 解释为具体的系统调用帮助用户获取系统服务。</p>
+<h2 id="shell">如何正确地使用 shell</h2>
+<blockquote>
+<p>“Unix 哲学是这样的：一个程序只做一件事，并做好。程序要能协作。程序要能处理文本流，因为这是最通用的接口。” — <em>Doug McIlroy</em></p>
+</blockquote>
+<p>shell 是我们与 Linux 操作系统交互的直接方式，因此正确地使用 shell 是尤为重要的。上面这段话是 Unix 管道发明人、 Unix 传统的奠基人之一 Doug McIlroy 对于 Unix 哲学的总结。所谓正确地使用 shell，就是依据 Unix 哲学来思考问题，然后使用 shell 解决这个问题。</p>
+<h3 id="unix">对于 Unix 哲学的思考</h3>
+<ul>
+<li>
+<p>思考 1：每个工具都只做了一件事，并且把这件事做的很好。</p>
+</li>
+<li>
+<p>思考 2：工具之间可以通过<em>管道</em>连接，将一个工具的输出作为另一个工具的输入，组合起来完成更复杂的任务。</p>
+</li>
+<li>
+<p>思考 3：我们可以将一切 shell 中工具的输入和输出视为文本流，只有我们自己或是管道中的下一个工具才能决定它的含义。</p>
+</li>
+</ul>
+<h3 id="_1">例子</h3>
+<p>比如说有一个需求：希望查看一个仓库每两次相邻提交的变化，并将其保存到不同的文件中。</p>
+<p>首先直接搜索这个需求，发现是不行的，说明这个问题太过复杂且不具有普遍性，因此需要拆解这个问题：</p>
+<ol>
+<li>使用 <code>git log</code> 可以获得所有的提交记录及其对应的 commit SHA </li>
+<li>将提交记录里的 commit SHA 都提取出来</li>
+<li>遍历上面的 commit SHA 列表，每次取当前项和下一项（即两次相邻的提交对应的 commit SHA），将这两个值交给 <code>git diff</code>，然后重定向到文件中</li>
+</ol>
+<p>这样，我们就获得了一个可行的方案，接下来利用管道和 shell 脚本来解决这个问题。</p>
+<h4 id="_2">通过管道组合简单任务</h4>
+<ol>
+<li>获得提交记录比较简单，只需要</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ git log
+</code></pre></div>
+<ol>
+<li>提取提交记录中的 commit SHA 这个任务乍一想不太号实现，观察 <code>git log</code> 的输出</li>
+</ol>
+<div class="highlight"><pre><span></span><code>commit 27c7c471563c8c345af7c94f51bd9537e38a66e3 (HEAD -&gt; nscscc-2023, origin/nscscc-2023)
+Author: MiaoHao-oops &lt;haomiao19@mails.ucas.ac.cn&gt;
+Date:   Tue Oct 18 22:04:52 2022 +0800
+
+    try hint block headings
+
+commit fbccaa0c2ced843d8abaa80cd57a6dadad44eb06
+Author: MiaoHao-oops &lt;haomiao19@mails.ucas.ac.cn&gt;
+Date:   Tue Oct 18 22:01:35 2022 +0800
+
+    realign hint blocks
+</code></pre></div>
+<p>发现有一定的规律：所有 commit SHA 前面都有一个 “commit” ，这个任务很简单，通过搜索“shell 字符串匹配”等类似关键字就可以找到解决方法。我们可以使用 <code>grep</code> 工具提取：</p>
+<div class="highlight"><pre><span></span><code>$ git log <span class="p">|</span> grep commit
+commit 12f057bec6902814583350c85358bb73c0e0a837
+commit 76a02fae60e4246128f763866f5b3011225916ff
+commit f9da5d53d2a9bd2e4aee168dae14a70558f32b58
+commit 4ed33590aec4562a3531bb293c252c21be90417a
+    This reverts commit c298e171dd69e6527d71017c71008116c0d69cbe.
+commit fa3e985cba2b90908c142491aa3d34144a935192
+...
+commit edf1881e261f98a57fe7941c3496d78606203f16
+    Initial commit
+</code></pre></div>
+<p>可以发现，中间和结尾的地方出现了一些我们不想要的东西，这时候可以使用更加强大的<a href="https://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a>来提取：</p>
+<div class="highlight"><pre><span></span><code>$ git log <span class="p">|</span> grep <span class="s1">&#39;^commit [a-z|0-9]&#39;</span>
+commit 12f057bec6902814583350c85358bb73c0e0a837
+commit 76a02fae60e4246128f763866f5b3011225916ff
+commit f9da5d53d2a9bd2e4aee168dae14a70558f32b58
+commit 4ed33590aec4562a3531bb293c252c21be90417a
+commit fa3e985cba2b90908c142491aa3d34144a935192
+...
+commit edf1881e261f98a57fe7941c3496d78606203f16
+</code></pre></div>
+<p>现在离成功还差一步，也就是去掉每行行首的 “commit”，通过类似的方法，将这个任务抽象成“获取每行字符串的第二个字段”便可以找到解决方法。使用 <code>awk</code> 命令：</p>
+<div class="highlight"><pre><span></span><code>$ git log <span class="p">|</span> grep <span class="s1">&#39;^commit [a-z|0-9]&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span>
+12f057bec6902814583350c85358bb73c0e0a837
+76a02fae60e4246128f763866f5b3011225916ff
+f9da5d53d2a9bd2e4aee168dae14a70558f32b58
+4ed33590aec4562a3531bb293c252c21be90417a
+fa3e985cba2b90908c142491aa3d34144a935192
+...
+edf1881e261f98a57fe7941c3496d78606203f16
+</code></pre></div>
+<h4 id="shell_1">利用 shell 脚本将命令顺序保存下来</h4>
+<p>每次都输入一长串命令十分麻烦，因此可以使用脚本将命令保存到文件中：</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s1">&#39;git log | grep &#39;</span><span class="se">\&#39;</span><span class="s1">&#39;^commit [a-z|0-9]&#39;</span><span class="se">\&#39;</span><span class="s1">&#39; | awk &#39;</span><span class="se">\&#39;</span><span class="s1">&#39;{print $2}&#39;</span><span class="se">\&#39;</span> &gt; get-diff.sh    <span class="c1"># 将命令写入脚本文件 get-diff.sh</span>
+$ chmod +x get-diff.sh  <span class="c1"># 为脚本文件添加可执行权限</span>
+$ ./get-diff.sh
+12f057bec6902814583350c85358bb73c0e0a837
+76a02fae60e4246128f763866f5b3011225916ff
+f9da5d53d2a9bd2e4aee168dae14a70558f32b58
+4ed33590aec4562a3531bb293c252c21be90417a
+fa3e985cba2b90908c142491aa3d34144a935192
+...
+edf1881e261f98a57fe7941c3496d78606203f16
+</code></pre></div>
+<p>仅用脚本将 commit SHA 输出是不够的，我们还需要对它们做一些操作，因此，将结果保存到一个变量中是一个更好的选择：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="nv">CMT_SIGN</span><span class="o">=</span><span class="sb">`</span>git log <span class="p">|</span> grep <span class="s1">&#39;^commit [a-z|0-9]&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">CMT_SIGN</span><span class="si">}</span>
+</code></pre></div>
+<p>在上面的脚本文件中，我们首先使用 <code>#!</code> 标记了该脚本所使用的解释器为 bash；然后使用反引号 <code>`</code> 将命令包裹起来，并将结果保存在了变量 <code>CMT_SIGN</code> 中；最后使用 <code>echo</code> 命令查看 <code>CMT_SIGN</code> 的内容是否正确。</p>
+<p>接下来，我们希望能够像操作数组那样操作 commit SHA 的列表，由于 CMT_SIGN 中每一个 commit SHA 是用空格隔开的，因此可以利用 shell 中定义数组的语法来将 <code>CMT_SIGN</code> 转化为一个数组：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="nv">CMT_SIGN</span><span class="o">=</span><span class="sb">`</span>git log <span class="p">|</span> grep <span class="s1">&#39;^commit [a-z|0-9]&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span><span class="sb">`</span>
+<span class="c1"># shell 中定义数组的语法，每个元素用空格隔开：</span>
+<span class="c1"># array_name=(value_1 value_2 ... value_n)</span>
+<span class="nv">CMT_SIGN</span><span class="o">=(</span><span class="si">${</span><span class="nv">CMT_SIGN</span><span class="si">}</span><span class="o">)</span>
+</code></pre></div>
+<p>而后，想要遍历这个数组，首选方法便是使用一个循环。在 shell 中，支持 C 语言风格循环：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="nv">CMT_SIGN</span><span class="o">=</span><span class="sb">`</span>git log <span class="p">|</span> grep <span class="s1">&#39;^commit [a-z|0-9]&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span><span class="sb">`</span>
+<span class="nv">CMT_SIGN</span><span class="o">=(</span><span class="si">${</span><span class="nv">CMT_SIGN</span><span class="si">}</span><span class="o">)</span>
+
+<span class="c1"># 首先获取数组 CMT_SIGN 的长度</span>
+<span class="nv">LEN</span><span class="o">=</span><span class="si">${#</span><span class="nv">CMT_SIGN</span><span class="p">[@]</span><span class="si">}</span>
+
+<span class="c1"># C 语言风格 for 循环</span>
+<span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>i&lt;<span class="si">${</span><span class="nv">LEN</span><span class="si">}</span>-1<span class="p">;</span>i++<span class="o">))</span>
+<span class="k">do</span>
+        <span class="c1"># 获取数组的第 i、i+1 项</span>
+        <span class="nv">new</span><span class="o">=</span><span class="si">${</span><span class="nv">CMT_SIGN</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span>
+        <span class="nv">old</span><span class="o">=</span><span class="si">${</span><span class="nv">CMT_SIGN</span><span class="p">[</span><span class="nv">$i</span><span class="p">+1]</span><span class="si">}</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>我们使用了一个 for 循环来遍历这个数组，并且将相邻的两个 commit SHA 分别存在变量 new 和 old 中。最后，我们使用 <code>git diff</code> 命令生成补丁文件：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="nv">CMT_SIGN</span><span class="o">=</span><span class="sb">`</span>git log <span class="p">|</span> grep <span class="s1">&#39;^commit [a-z|0-9]&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span><span class="sb">`</span>
+<span class="nv">CMT_SIGN</span><span class="o">=(</span><span class="si">${</span><span class="nv">CMT_SIGN</span><span class="si">}</span><span class="o">)</span>
+
+<span class="nv">LEN</span><span class="o">=</span><span class="si">${#</span><span class="nv">CMT_SIGN</span><span class="p">[@]</span><span class="si">}</span>
+
+<span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>i&lt;<span class="si">${</span><span class="nv">LEN</span><span class="si">}</span>-1<span class="p">;</span>i++<span class="o">))</span>
+<span class="k">do</span>
+        <span class="nv">new</span><span class="o">=</span><span class="si">${</span><span class="nv">CMT_SIGN</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span>
+        <span class="nv">old</span><span class="o">=</span><span class="si">${</span><span class="nv">CMT_SIGN</span><span class="p">[</span><span class="nv">$i</span><span class="p">+1]</span><span class="si">}</span>
+        git diff <span class="si">${</span><span class="nv">old</span><span class="si">}</span> <span class="si">${</span><span class="nv">new</span><span class="si">}</span> &gt; <span class="nv">$i</span>.patch
+<span class="k">done</span>
+</code></pre></div>
+<p>最终，我们运行该脚本，便能够在当前目录下得到一系列补丁文件 <code>{0, 1, ..., $LEN}.patch</code>，由新到旧保存了相邻提交的差异。</p>
+<p>{% hint style="info" %}</p>
+<h4 id="_3">练习</h4>
+<ul>
+<li>
+<p><strong>背景</strong>：对于 6.1 版本的 Linux 内核，已经加入了一些使用 <a href="https://www.rust-lang.org/">rust 语言</a>编写的模块，因此我们想对其中的 rust 源码进行一些统计。</p>
+</li>
+<li>
+<p><strong>要求</strong>：</p>
+<ol>
+<li>编写一个脚本，能够下载、解压 6.1 版本内核源码，并打印出其中行数最多的 rust 源文件名称和行数</li>
+<li _="%" endhint="endhint">（选做）若本目录下已经存在 Linux 源码，则直接打印出统计信息</li>
+</ol>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../lec02/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lec 02 - git 协作，SOC 与裸机程序" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Lec 02 - git 协作，SOC 与裸机程序
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../lec02/" class="md-footer__link md-footer__link--next" aria-label="Next: 对于 lec 02 的一些补充" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              对于 lec 02 的一些补充
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+    
+  </body>
+</html>

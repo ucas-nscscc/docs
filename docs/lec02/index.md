@@ -6,7 +6,7 @@
 
 在这张图里，所有结点的公共祖先都是第一次 commit：
 
-```
+```sh
 $ mkdir my-prj && cd my-prj
 $ touch README.md
 $ git init && git add . && git commit -m "init commit"
@@ -26,7 +26,7 @@ Initialized empty Git repository in /home/haooops/my-prj/.git/
 
 对 `README.md` 进行修改：
 
-```
+```sh
 $ echo "# README" >> README.md
 $ git add . && git commit -m "update README.md"
 [master 0493f9d] update README.md
@@ -43,7 +43,7 @@ $ git add . && git commit -m "update README.md"
 
 创建并切换一个新的分支：
 
-```
+```sh
 $ git checkout -b new
 Switched to a new branch 'new'
 
@@ -58,7 +58,7 @@ Switched to a new branch 'new'
 
 在新的分支上对 `README.md` 进行修改：
 
-```
+```sh
 $ echo "## chapter 1" >> README.md
 $ git add . && git commit -m "update README.md"
 [new 91a9767] update README.md
@@ -74,7 +74,7 @@ $ git add . && git commit -m "update README.md"
 
 回到 `master` 后创建并切换一个新的分支：
 
-```
+```sh
 $ git checkout master && git checkout -b bee
 Switched to branch 'master'
 Switched to a new branch 'bee'
@@ -89,7 +89,7 @@ Switched to a new branch 'bee'
 
 在新的分支上对 `README.md` 进行修改：
 
-```
+```sh
 $ echo "## chapter 2" >> README.md
 $ git add . && git commit -m "update README.md"
 [bee b8a67e1] update README.md
@@ -105,7 +105,7 @@ $ git add . && git commit -m "update README.md"
 
 合并 new、bee 两个分支到 new：
 
-```
+```sh
 $ git checkout new && git merge bee
 Switched to branch 'new'
 Auto-merging README.md
@@ -114,7 +114,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 此时发生了冲突（conflict），git 提示需要进行手动合并，然后再 commit 一次：
-```
+```sh
 $ cat README.md
 # README
 <<<<<<< HEAD
@@ -210,19 +210,17 @@ CPU 对外暴露两个类 SRAM 接口，其中一个直接连接到同样具有�
 ## 控制外设
 
 先来看硬件部分。LoongArch 访问外设的方法是 **MMIO**，也就是将外设寄存器直接映射到地址空间上，CPU 通过 `ld/st` 指令进行操作。CPU 访问外设的数据通路是：
-+ 流水线向数据类 SRAM 总线发起访存请求（CPU 内部逻辑）
-+ 访存请求到达 1 x 2 bridge 上，转换桥进行仲裁，将请求送到与 confreg 相连的总线上（`bridge_1x2.v`）
-+ confreg 请求，内部进行处理，改变输出端口的电平（`confreg.v`）
-+ 通过约束文件将输出端口绑定到芯片引脚上，从而控制具体的外设（`soc_lite_top.xdc`）
+
+- 流水线向数据类 SRAM 总线发起访存请求（CPU 内部逻辑）
+- 访存请求到达 1 x 2 bridge 上，转换桥进行仲裁，将请求送到与 confreg 相连的总线上（`bridge_1x2.v`）
+- confreg 请求，内部进行处理，改变输出端口的电平（`confreg.v`）
+- 通过约束文件将输出端口绑定到芯片引脚上，从而控制具体的外设（`soc_lite_top.xdc`）
 
 再来看软件部分。我们需要使用 `ld/st` 指令来操作外设，因此，需要知道**访问的地址**以及**读写数据的含义**。在运行的功能测试程序中，我们已经使用了 LED、数码管以及拨码开关这 3 种外设。通过阅读功能测试的代码，可以了解控制它们的方式，而这些控制程序就是它们的**驱动程序**。
 
-{% hint style="warning" %}
-#### 注意
+!!! warning "注意"
 
-外设分为**可探测**和**不可探测**两种，我们所使用的外设**全部为不可探测**外设。因此，需要进行*软硬件协同*，驱动程序开发者需要知道 SOC 设计时为外设分配的地址空间。
-
-{% endhint %}
+    外设分为**可探测**和**不可探测**两种，我们所使用的外设**全部为不可探测**外设。因此，需要进行*软硬件协同*，驱动程序开发者需要知道 SOC 设计时为外设分配的地址空间。
 
 ### 直接读写外设
 
@@ -237,8 +235,9 @@ CPU 对外暴露两个类 SRAM 接口，其中一个直接连接到同样具有�
 |矩阵键盘|`0xbfaf_f070`|32 bit|R|末 16 位每比特对应一个按键，松开为 `0x0`，按下为 `0x1`|-|
 
 说明：
-+ 双色 LED 有两个地址，低地址对应 FPGA 板上右侧的 LED ，高地址对应左侧 LED 。
-+ 矩阵键盘末 16 位与键盘位置对应关系为：
+
+- 双色 LED 有两个地址，低地址对应 FPGA 板上右侧的 LED ，高地址对应左侧 LED 。
+- 矩阵键盘末 16 位与键盘位置对应关系为：
 
 	```
 	+----+----+----+----+
@@ -252,12 +251,9 @@ CPU 对外暴露两个类 SRAM 接口，其中一个直接连接到同样具有�
 	+----+----+----+----+
 	```
 
-{% hint style="info" %}
-#### 信息
+!!! info "信息"
 
-在 confreg 的实现中，拨码开关的复位值被显示到单色 LED 上，有兴趣的同学可以参看 `confreg.v` 了解它是怎么实现的。
-
-{% endhint %}
+    在 confreg 的实现中，拨码开关的复位值被显示到单色 LED 上，有兴趣的同学可以参看 `confreg.v` 了解它是怎么实现的。
 
 ### 外部计数器
 
@@ -267,13 +263,14 @@ confreg 中实现了一个**恒定频率计数器**为整个 SOC 提供计时功
 
 在 confreg 中，计数器是一个 RW 类型的寄存器，我们可以写入一个值对它进行设置，也可以读出当前的值，它的地址为 `0xbfaf_e000`。
 
-通过这个计数器，软件可以实现 `delay(100)` 和 `sleep(100)` 等带有定时功能的函数。
+通过这个计数器，软件可以实现 `delay()` 和 `sleep()` 等带有定时功能的函数。
 
 ### 扩展其他外设
 
 在目前的 SOC 中，使用的是类 SRAM 总线接口。前面提到，它是一种自定义接口，因此扩展起来有一些麻烦：我们需要自己编写满足类 SRAM 接口的外设控制器以及转换桥。而后续使用的 AXI 接口则是一种工业接口，在 Vivado 中可以很方便地调用许多具有 AXI 接口的外设控制器以及转换桥（一般采用交叉总线 cross bar 的形式，简称 xbar），并且 Vivado 提供了 Block Design 功能方便我们进行 SOC 设计。
 
 简单来说，添加不可探测的外设需要以下几个步骤：
+
 1. 编写 RTL 或调用 IP 核得到外设控制器
 2. 手动为外设控制器分配地址空间，将其通过转换桥接入 SOC
 3. 根据分配的地址，编写对应的驱动程序，实现自定义功能
@@ -299,15 +296,11 @@ LoongArch32r 架构的复位 PC 为 `0x1c00_0000`，计算机复位后立即从�
 	+ 通用寄存器：`$sp` 需要指向一段可用的内存作为栈
 	+ 内存：将 bss 段初始化为 `0x0`
 
-{% hint style="warning" %}
+!!! warning "注意"
 
-#### 注意
+    由于目前 CPU 还不支持虚拟内存管理，其他内容无需由我们设置。CPU 复位后默认处于“直接地址翻译模式”，我们仅保持在该模式下即可驱动外设，并运行一些程序。
 
-由于目前 CPU 还不支持虚拟内存管理，其他内容无需由我们设置。CPU 复位后默认处于“直接地址翻译模式”，我们仅保持在该模式下即可驱动外设，并运行一些程序。
-
-SOC 中的指令、数据 RAM 大小均为 1MB，都映射到地址段 `0x1c00_0000 ~ 0x1c0f_ffff`。我们在逻辑上将它们视为一个，装载相同的二进制文件，只要没有自修改代码，程序便能正常运行。
-
-{% endhint %}
+    SOC 中的指令、数据 RAM 大小均为 1MB，都映射到地址段 `0x1c00_0000 ~ 0x1c0f_ffff`。我们在逻辑上将它们视为一个，装载相同的二进制文件，只要没有自修改代码，程序便能正常运行。
 
 ### 第二入口：C 语言
 
@@ -415,26 +408,23 @@ clean:
 
 1. 打开工程，使用上面产生的 `inst_ram.coe` 来 recustomize inst_ram。
 2. 使用上面产生的 `inst_ram.coe` 来 recustomize data_ram。
-
-    > 由于目前我们使用的是类 SRAM 总线，SOC 为“[哈佛结构](https://en.wikipedia.org/wiki/Harvard_architecture)”，`inst_ram` 和 `data_ram` 分开，因此需要将 ELF 文件中的代码段加载到 `inst_ram` 中，将数据段加载到 `data_ram` 中。因为目前的 COE 文件同时提取了 ELF 文件的代码段和数据段，所以我们只需要将 COE 文件同时加载到两个 RAM 中即可。
-
-    > 切换到 AXI 总线后，SOC 就变成了“[冯·诺依曼结构](https://en.wikipedia.org/wiki/Von_Neumann_architecture)”，`inst_ram` 和 `data_ram` 合为了一个 `axi_ram`，因此只需要将 COE 文件加载到这个 RAM 中即可。
-
 3. 生成比特流，烧入到实验箱中，观察结果。
 
+!!! info "信息"
 
-{% hint style="info" %}
+    由于目前我们使用的是类 SRAM 总线，SOC 为“[哈佛结构](https://en.wikipedia.org/wiki/Harvard_architecture)”，`inst_ram` 和 `data_ram` 分开，因此需要将 ELF 文件中的代码段加载到 `inst_ram` 中，将数据段加载到 `data_ram` 中。因为目前的 COE 文件同时提取了 ELF 文件的代码段和数据段，所以我们只需要将 COE 文件同时加载到两个 RAM 中即可。
 
-#### 练习
+    切换到 AXI 总线后，SOC 就变成了“[冯·诺依曼结构](https://en.wikipedia.org/wiki/Von_Neumann_architecture)”，`inst_ram` 和 `data_ram` 合为了一个 `axi_ram`，因此只需要将 COE 文件加载到这个 RAM 中即可。
 
-1. 编写一个裸机程序，实现 16 个单色 LED 的跑马灯功能。要求：16个单色 LED 从右到左依次点亮，每个灯点亮 1s 后立刻切换到下一个灯。
-2. 编写一个裸机程序，实现斐波那契数列的求和功能。要求：
-    
-    1. 用拨码开关的复位值控制求和的项数，拨上为 1，拨下为 0，记拨码开关的值为 `n`。求第 0 项到第 `n` 项的和。
-    2. 将求和结果以 16 进制的形式输出到数码管上。
-    3. （选做）利用拨码开关和矩阵键盘实现多次不同输入的求和计算。调整拨码开关的值，程序等待按下某个自定义的矩阵键盘按键（类比输入“回车”），得到输入，计算结果。
 
-{% endhint %}
+!!! question "练习"
+
+    1. 编写一个裸机程序，实现 16 个单色 LED 的跑马灯功能。要求：16个单色 LED 从右到左依次点亮，每个灯点亮 1s 后立刻切换到下一个灯。
+    2. 编写一个裸机程序，实现斐波那契数列的求和功能。要求：
+        
+        1. 用拨码开关的复位值控制求和的项数，拨上为 1，拨下为 0，记拨码开关的值为 `n`。求第 0 项到第 `n` 项的和。
+        2. 将求和结果以 16 进制的形式输出到数码管上。
+        3. （选做）利用拨码开关和矩阵键盘实现多次不同输入的求和计算。调整拨码开关的值，程序等待按下某个自定义的矩阵键盘按键（类比输入“回车”），得到输入，计算结果。
 
 ## 参考资料
 
