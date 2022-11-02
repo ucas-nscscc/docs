@@ -340,9 +340,11 @@ SECTIONS
         *(.data)
     }
 
-    __bss_start = .;            /* 定义一个标号指向 bss 的开始位置 */
-    .bss : { *(.bss) }          /* 所有 bss 段在 rodata 段后面 */
-    __bss_end = .;              /* 定义一个标号指向 bss 的结束位置 */
+    .bss : {                    /* 所有 bss 段在 rodata 段后面 */
+        __bss_start = .;        /* 定义一个标号指向 bss 的开始位置 */
+        *(.bss)
+        __bss_end = .;          /* 定义一个标号指向 bss 的结束位置 */
+    }
 
     . = ALIGN(0x1000);          /* 要求下一个标号开始的位置对齐到 0x1000 (4KB) */
     bootstack = .;              /* 定义一个标号指向栈底 */
