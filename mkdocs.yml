@@ -11,7 +11,7 @@ nav:
 plugins:
     - git-committers:
         repository: 'ucas-nscscc/docs'
-        branch: 'mkdocs'
+        branch: 'mkdocs-2023'
 markdown_extensions:
   - def_list
   - pymdownx.tasklist:
