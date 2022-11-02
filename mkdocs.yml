@@ -10,6 +10,9 @@ nav:
         - '在 Linux 上使用 Vivado 可能遇到的问题': 'misc/vivado.md'
 plugins:
     - git-authors
+    - git-committers:
+      repository: ucas-nscscc/docs
+      branch: mkdocs
 markdown_extensions:
   - def_list
   - pymdownx.tasklist:
