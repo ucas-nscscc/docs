@@ -133,7 +133,7 @@ $ cat README.md
 
 根据需要点击选项，留下需要的内容，然后再进行一次 commit：
 
-```
+```sh
 $ git add README.md && git commit -m "merge new and bee"
 [new 0c8d026] merge new and bee
 
@@ -151,7 +151,7 @@ $ git add README.md && git commit -m "merge new and bee"
 
 合并 new 分支到 master：
 
-```
+```sh
 $ git checkout master && git merge new
 Updating 0493f9d..0c8d026
 Fast-forward
