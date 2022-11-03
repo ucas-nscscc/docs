@@ -129,7 +129,7 @@ $ cat README.md
 
 我们可以直接对产生冲突的文件进行修改。在 vscode 中，提供了默认的插件，可以方便地进行分支合并：
 
-![](../img/conflict.png)
+![](../img/lec02/conflict.png)
 
 根据需要点击选项，留下需要的内容，然后再进行一次 commit：
 
@@ -259,7 +259,7 @@ CPU 对外暴露两个类 SRAM 接口，其中一个直接连接到同样具有�
 
 confreg 中实现了一个**恒定频率计数器**为整个 SOC 提供计时功能。具体而言，confreg 模块具有两个时钟输入 clk 和 timer_clk，其中 clk 用于 confreg 中寄存器的驱动，timer_clk 则用于计数器的驱动，使其每个周期自动加一。在我们使用的 SOC 中，timer_clk 的频率是 100MHz，通过查看时钟 IP 核 clk_pll 的配置可以明确这一点：
 
-![](../img/pll.png)
+![](../img/lec02/pll.png)
 
 在 confreg 中，计数器是一个 RW 类型的寄存器，我们可以写入一个值对它进行设置，也可以读出当前的值，它的地址为 `0xbfaf_e000`。
 
