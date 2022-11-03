@@ -306,16 +306,14 @@ LoongArch32r 架构的复位 PC 为 `0x1c00_0000`，计算机复位后立即从�
 
 准备好 C 语言环境后，就可以从汇编语言跳转到 C 语言执行了：
 
-```S
-# start.S
+```S title="start.S"
 ...
 bl main
 ```
-```c
-// main.c
+```c title="main.c"
 int main()
 {
-        ...
+    ...
 }
 ```
 
@@ -325,8 +323,7 @@ int main()
 
 为了能够自定义程序的布局，我们需要编写一个链接脚本：
 
-```ld
-/* bare-metal.ld */
+```ld title="bare-metal.ld"
 SECTIONS
 {
     . = 0x1c000000;             /* 指定起始地址 */
@@ -354,10 +351,9 @@ SECTIONS
 
 有了链接脚本，我们可以直接在汇编或 C 语言中使用定义的标号，比如将栈顶存储到寄存器 `$sp`：
 
-```S
-# start.S
+```S title="start.S"
 ...
-la      $sp, bootstacktop
+la $sp, bootstacktop
 ```
 
 ### 二进制文件与 COE 文件
@@ -374,8 +370,7 @@ la      $sp, bootstacktop
 
 我们可以编写一个 Makefile 将整个流程连接起来：
 
-```Makefile
-# Makefile
+```Makefile title="Makefile"
 CROSSTOOL:=loongarch32r-linux-gnusf-
 CC       :=$(CROSSTOOL)gcc
 OBJCOPY  :=$(CROSSTOOL)objcopy

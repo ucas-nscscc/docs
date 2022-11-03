@@ -14,14 +14,14 @@ $ ld start.o main.o -o main.elf
 
 我们先来看对于 `jirl` 指令，编译器是如何处理的。在源文件 `start.S` 中：
 
-```s
+```s title="start.S"
 la   $t0, main
 jirl $ra, $t0, 0
 ```
 
 经过编译后，获取反汇编：
 
-```s
+```s title="test.S"
 pcaddu12i $r12,0
 ld.w      $r12,$r12,1384(0x568)
 jirl      $r1,$r12,0
@@ -31,13 +31,13 @@ jirl      $r1,$r12,0
 
 再看 `bl` 指令，在 `start.S` 中：
 
-```s
+```s title="start.S"
 bl main
 ```
 
 经过编译后，获取反汇编：
 
-```s
+```s title="test.S"
 bl      364(0x16c) # 1c000194 <main>
 ```
 

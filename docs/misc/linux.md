@@ -130,7 +130,7 @@ edf1881e261f98a57fe7941c3496d78606203f16
 
 仅用脚本将 commit SHA 输出是不够的，我们还需要对它们做一些操作，因此，将结果保存到一个变量中是一个更好的选择：
 
-```sh
+```sh title="test.sh"
 #!/usr/bin/bash
 CMT_SIGN=`git log | grep '^commit [a-z|0-9]' | awk '{print $2}'`
 echo ${CMT_SIGN}
@@ -140,7 +140,7 @@ echo ${CMT_SIGN}
 
 接下来，我们希望能够像操作数组那样操作 commit SHA 的列表，由于 CMT_SIGN 中每一个 commit SHA 是用空格隔开的，因此可以利用 shell 中定义数组的语法来将 `CMT_SIGN` 转化为一个数组：
 
-```sh
+```sh title="test.sh"
 #!/usr/bin/bash
 CMT_SIGN=`git log | grep '^commit [a-z|0-9]' | awk '{print $2}'`
 # shell 中定义数组的语法，每个元素用空格隔开：
@@ -150,7 +150,7 @@ CMT_SIGN=(${CMT_SIGN})
 
 而后，想要遍历这个数组，首选方法便是使用一个循环。在 shell 中，支持 C 语言风格循环：
 
-```sh
+```sh title="test.sh"
 #!/usr/bin/bash
 CMT_SIGN=`git log | grep '^commit [a-z|0-9]' | awk '{print $2}'`
 CMT_SIGN=(${CMT_SIGN})
@@ -169,7 +169,7 @@ done
 
 我们使用了一个 for 循环来遍历这个数组，并且将相邻的两个 commit SHA 分别存在变量 new 和 old 中。最后，我们使用 `git diff` 命令生成补丁文件：
 
-```sh
+```sh title="test.sh"
 #!/usr/bin/bash
 CMT_SIGN=`git log | grep '^commit [a-z|0-9]' | awk '{print $2}'`
 CMT_SIGN=(${CMT_SIGN})
