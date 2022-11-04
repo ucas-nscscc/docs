@@ -124,7 +124,7 @@ Vivado%
     Vivado% set_property  ip_repo_paths  {<Mycpu Home> <Confreg Home>} [current_project]
     ```
 
-### 启动图形界面搭建 SOC
+### 搭建 SOC 框架
 
 - 通过命令 `start_gui` 启动图形界面：
 
