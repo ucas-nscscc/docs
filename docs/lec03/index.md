@@ -1,6 +1,6 @@
 # Lec 03 - SOC 搭建
 
-本次培训将指导大家使用 Vivado 的 Block Design 功能搭建自己的 SOC，并在此基础上添加串口控制器，与其他计算机进行串口通信。
+本次培训将指导大家使用 Vivado 的 Block Design 功能搭建自己的 SOC，并在此基础上添加存储器与 GPIO 控制器，形成最小计算机系统。
 
 ## 将 RTL 代码封装为 IP 核
 
