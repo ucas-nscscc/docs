@@ -4,7 +4,7 @@ nav:
     - 'NSCSCC 2023': 'index.md'
     - 'Lec 01 - “龙芯杯”大赛介绍': 'lec01/index.md'
     - 'Lec 02 - git 协作，SOC 与裸机程序': 'lec02/index.md'
-    - 'Lec 03 - SOC 搭建与串口通信': 'lec03/index.md'
+    - 'Lec 03 - SOC 搭建': 'lec03/index.md'
     - '杂项':
         - 'Linux 操作系统杂谈': 'misc/linux.md'
         - '对于 lec 02 的一些补充': 'misc/lec02.md'
