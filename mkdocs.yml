@@ -15,6 +15,9 @@ plugins:
         repository: 'ucas-nscscc/docs'
         branch: 'mkdocs-2023'
 markdown_extensions:
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true 
     - footnotes
     - def_list
     - pymdownx.tasklist:
