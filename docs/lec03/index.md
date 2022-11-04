@@ -188,6 +188,63 @@ Vivado%
 
 ![](../img/lec03/soc.png)
 
+### 添加存储器与 IO 设备
+
+Loongarch32r 的复位 PC 为 `0x1c00_0000`，因此必须将以该地址为基址的一片地址空间映射到一块存储器上。
+
+#### 添加 Boot ROM
+
+- 添加 Block Memory Generator IP 核：
+    
+    ![](../img/lec03/BRAM-1.png)
+
+- 双击该 IP 核进行配置，需要将 Basic :material-arrow-right: Mode 修改为 BRAM Controller，Basic :material-arrow-right: Memory Type 修改为 Single Port ROM：
+
+    ![](../img/lec03/BRAM-2.png)
+
+!!! warning "注意"
+
+    - 此处我们选择了 Read Only Memory（ROM）作为 Boot ROM，这是因为在 BD 中只有 ROM 才能使用 `.coe` 文件进行初始化。这样我们就无法将变量也保存在 ROM 中，因此稍后需要再添加一个 RAM，将它映射到其他地址段。通过 Boot ROM 的代码（即 bootloader）将真正要执行的程序加载到 RAM 中，再跳转到 RAM 中继续程序的执行。
+
+    - 此处我们无法设置存储器的深度，因为它的深度是随着稍后我们为它分配的地址空间大小自动变化的。
+
+- 注意到该 IP 并不是 AXI 接口，而是 BRAM 接口，因此需添加一个 AXI BRAM Controller 进行转换：
+
+    ![](../img/lec03/BRAM-3.png)
+
+- 双击该 IP 核进行配置，将 BRAM Options :material-arrow-right: Number of BRAM interfaces 修改为 1：
+
+    ![](../img/lec03/BRAM-4.png)
+
+- 连接 axi_crossbar_0 的 M00_AXI :material-arrow-right: axi_bram_ctrl_0 的 S_AXI，axi_bram_ctrl_0 的 BRAM_PORTA :material-arrow-right: blk_mem_gen_0 的 BRAM_PORTA：
+
+    ![](../img/lec03/BRAM-5.png)
+
+- 点击 Run Connection Automation 自动连接时钟与复位信号：
+
+    ![](../img/lec03/BRAM-6.png)
+
+#### 设置 Boot ROM 的映射地址
+
+- 切换到 Address Editor 选项卡即可为 SOC 中的从设备分配地址。右键点击 Unmapped Slaves :material-arrow-right: axi_bram_ctrl_0，选择 Assign Address 为 Boot ROM 配置地址：
+
+    ![](../img/lec03/am-1.png)
+
+- 将 Offset Address 改为 `0x1C00_0000`，Range 修改为 `32K`：
+
+    ![](../img/lec03/am-2.png)
+
+- 回到 Diagram，点击工具栏中的 :material-checkbox-marked-outline: Validate Design 按钮检查 SOC 中的连线是否正确，而后查看 axi_bram_ctrl_0 中 BRAM_PORTA 接口下 bram_addr_a 的宽度：
+
+    ![](../img/lec03/am-3.png)
+
+    此时地址宽度已自动设置为与 32KB 相对应的 15 位。
+
+!!! question "练习"
+
+    - 仿照添加 Boot ROM 的方法，添加一个 RAM 到 SOC 中，分配地址为：基址 `0x1C00_8000`，范围 `32K`
+    - 将 confreg IP 核添加到 SOC 中，分配地址为：基址 `0xBFAF_0000`，范围 `64K`（提示：需要重新定制 axi_crossbar_0，增加 Master Interfece 的数量；同时添加完成后需要将一些接口设置为 External）
+
 [^1]: 实际接口名称可能不是 interface_aximm
 [^2]: 之前注释 `debug_wb_*` 信号就是为了这一部几乎无需修改映射信息
 [^3]: 需要将 `<Mycpu Home>` 和 `<Confreg Home>` 分别替换为封装 mycpu 和 confreg 的工程根目录
