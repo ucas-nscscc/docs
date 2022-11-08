@@ -5,13 +5,14 @@ nav:
     - 'Lec 01 - “龙芯杯”大赛介绍': 'lec01/index.md'
     - 'Lec 02 - git 协作与软硬协同': 'lec02/index.md'
     - 'Lec 03 - SOC 搭建': 'lec03/index.md'
+    - 'Lec 04 - SOC 上板与系统启动': 'lec04/index.md'
     - '杂项':
         - 'Linux 操作系统杂谈': 'misc/linux.md'
         - '对于 lec 02 的一些补充': 'misc/lec02.md'
         - '在 Linux 上使用 Vivado 可能遇到的问题': 'misc/vivado.md'
 plugins:
     - git-committers:
-        # enabled: False
+        enabled: False
         repository: 'ucas-nscscc/docs'
         branch: 'mkdocs-2023'
 markdown_extensions:
