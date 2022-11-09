@@ -5,7 +5,7 @@
 
 ### 创建 wrapper
 
-在 `'mysoc/mysoc.srcs/sources_1/bd/design_1/synth'` 这个目录下，我们能找到名为`design_1.v`的文件，可以看到其中的 `design_1` 模块实例化了所有放到 BD 中的 IP ：
+在 `mysoc/mysoc.srcs/sources_1/bd/design_1/synth` 这个目录下，我们能找到名为 `design_1.v` 的文件，可以看到其中的 `design_1` 模块实例化了所有放到 BD 中的 IP ：
 
 ![](../img/lec04/design_1.png)
 
