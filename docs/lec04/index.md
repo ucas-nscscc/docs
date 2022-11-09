@@ -8,7 +8,7 @@
 
 ![](../img/lec04/design_1.png)
 
-这个文件其实已经可以作为顶层文件来使用。但是我们往往会再写一个 wrapper 作为顶层文件。wrapper 需要包含以下几点要素：
+然而在现在这个状态下，整个模块是无法综合的。我们需要写一个 wrapper 作为顶层文件。wrapper 需要包含以下几点要素：
 
 - 设计顶层 wrapper 模块的 input、output 信号，使它们在信号名和位宽上和约束文件中的内容匹配；
     ``` Verilog title="mysoc_top.v"
@@ -57,19 +57,34 @@
 
 对于一个完整的 FPGA 设计，还需要有时序约束和管脚约束。这些约束都体现在以 `xdc` 为后缀的约束文件当中。这里以体系结构实验环境提供的约束文件（'mycpu_env/soc_axi/run_vivado/constraints/soc_lite_top.xdc'）为例来简单讲解。
 
-时序约束，比如设置 SOC 时钟频率，上升沿、下降沿位置等。下面这行约束说明我们的时钟周期是 10ns，上升沿在 0ns 处，下降沿在 5ns 处，这条属性绑定在 clk 信号上。
-``` xdc title="soc_lite_top.xdc"
-create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
-```
+- **时序约束**，比如设置 SOC 时钟频率，上升沿、下降沿位置等。下面这行约束说明我们的时钟周期是 10ns，上升沿在 0ns 处，下降沿在 5ns 处，这条属性绑定在 clk 信号上。
+    ``` xdc title="soc_lite_top.xdc"
+    create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
+    ```
 
-管脚约束，把信号和 FPGA 上的引脚绑定起来。下面约束表示把 `led[0]` 信号绑定到 `K23` 引脚上。
-``` xdc title="soc_lite_top.xdc"
-set_property PACKAGE_PIN K23 [get_ports {led[0]}]
-set_property PACKAGE_PIN J21 [get_ports {led[1]}]
-set_property PACKAGE_PIN H23 [get_ports {led[2]}]
-...
-```
-我们需要确保 `get_ports` 后的信号和 SOC 顶层文件的输入输出端口匹配。
+- **管脚约束**，把信号和 FPGA 上的引脚绑定起来，规定管脚的电平标准。
+
+    下面约束表示把 `led[0]` 信号绑定到 `K23` 引脚上。
+
+    ``` xdc title="soc_lite_top.xdc"
+    set_property PACKAGE_PIN K23 [get_ports {led[0]}]
+    set_property PACKAGE_PIN J21 [get_ports {led[1]}]
+    set_property PACKAGE_PIN H23 [get_ports {led[2]}]
+    ...
+    ```
+
+    下面约束表示 `led[]` 信号所在引脚的电气标准为LVCMOS33。
+
+    ``` xdc title="soc_lite_top.xdc"
+    set_property IOSTANDARD LVCMOS33 [get_ports clk]
+    set_property IOSTANDARD LVCMOS33 [get_ports resetn]
+    set_property IOSTANDARD LVCMOS33 [get_ports {led[*]}]
+    ...
+    ```
+
+    我们需要确保 `get_ports` 后的信号和 SOC 顶层文件的输入输出端口匹配。
+
+请注意，约束条目是有先后顺序的，每一行是一条指令，Vivado 按照行序从前往后读取，所以越后面的指令，其优先级越高。当有 2 条指令约束同一个东西时，后面指令会因为执行的比较晚，而覆盖前一条目。推荐的 `XDC` 文件组织方式一般是把时序约束放在前面，而把管脚约束放在后面。同时指令的语法要求严格，不要漏掉或多添加空格，否则会警告“不支持的命令”，有需要的同学可以自行查找资料。
 
 体系结构课提供的约束文件仅包含 lec02 中提到的简单外设，更多如 `UART`、`SPI flash` 的约束信息也不需要同学们自己来写，可以在大赛发布包中的约束文件中找到。
 
