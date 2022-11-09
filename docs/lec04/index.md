@@ -1,25 +1,98 @@
 # Lec 04 - SOC 上板与系统启动
 ## 上板测试 SOC
+
+经过上一讲的学习，我们已经搭建好SOC的结构，想要让我们的SOC能够布局布线、生成比特流，我们还缺少两个文件：项目顶层文件和约束文件。下面我们分别进行介绍。
+
 ### 创建 wrapper
+在 `'mysoc/mysoc.srcs/sources_1/bd/design_1/synth'` 这个目录下，我们能找到名为`design_1.v`的文件，可以看到其中的 `design_1` 模块实例化了所有放到 BD 中的 IP ：
+
+![](../img/lec04/design_1.png)
+
+这个文件其实已经可以作为顶层文件来使用。但是我们往往会再写一个 wrapper 作为顶层文件。wrapper 需要包含以下几点要素：
+
+- 设计顶层 wrapper 模块的 input、output 信号，使它们在信号名和位宽上和约束文件中的内容匹配；
+    ``` Verilog title="mysoc_top.v"
+    module mysoc_top(
+        input clk,
+        ...
+        // 使用我们习惯的方式命名
+        // 而不是 design_1 中生成的 led_0、uart_rtl_xxxx
+        // 方便与约束文件的信号名匹配
+        output [15:0] led,
+        ...
+    );
+    ...
+    endmodule
+    ```
+- 实例化 `design_1`，并对 `design_1` 的输入输出信号做必要处理。
+    ``` Verilog title="mysoc_top.v"
+    module mysoc_top(
+        ...
+    );
+        design_1 design_1_u(
+            .clk_in1_0   (clk),
+            ...
+            .led_0       (led),
+            ...
+        );
+    endmodule
+    ```
+
+    > 当前模块较为简单，没有什么额外的操作。Block Design 中的信号只能是单向端口，如果遇到可以是 inout 类型的引脚，wrapper 中还需手动处理相应信号。
+
+通过在 vivado 中 `Add Sources`，我们将这个文件添加到工程中来。它将被自动识别为顶层文件。
+
+![](../img/lec04/mysoc_top.png)
+
+#### vivado生成 wrapper
+当然，也可以由 vivado 先替我们生成一个 wrapper 文件，实例化好 `design_1` 模块，我们再在其中做修改。因为是 vivado 生成的，所以不可避免还会出现信号名复杂、信号待处理的情况，还需要我们手动修改，只不过它帮助我们例化好模块了，在其基础上修改可以提高一定的代码准确度。
+
+按照下图进行操作：
+![](../img/lec04/gen_wrapper.png)
+
+![](../img/lec04/vivado_wrapper.png)
+
+
 ### 约束文件
+
+对于一个完整的 FPGA 设计，还需要有时序约束和管脚约束。这些约束都体现在以 `xdc` 为后缀的约束文件当中。这里以体系结构实验环境提供的约束文件（'mycpu_env/soc_axi/run_vivado/constraints/soc_lite_top.xdc'）为例来简单讲解。
+
+时序约束，比如设置 SOC 时钟频率，上升沿、下降沿位置等。下面这行约束说明我们的时钟周期是 10ns，上升沿在 0ns 处，下降沿在 5ns 处，这条属性绑定在 clk 信号上。
+``` xdc title="soc_lite_top.xdc"
+create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
+```
+
+管脚约束，把信号和 FPGA 上的引脚绑定起来。下面约束表示把 `led[0]` 信号绑定到 `K23` 引脚上。
+``` xdc title="soc_lite_top.xdc"
+set_property PACKAGE_PIN K23 [get_ports {led[0]}]
+set_property PACKAGE_PIN J21 [get_ports {led[1]}]
+set_property PACKAGE_PIN H23 [get_ports {led[2]}]
+...
+```
+我们需要确保 `get_ports` 后的信号和 SOC 顶层文件的输入输出端口匹配。
+
+体系结构课提供的约束文件仅包含 lec02 中提到的简单外设，更多如 `UART`、`SPI flash` 的约束信息也不需要同学们自己来写，可以在大赛发布包中的约束文件中找到。
+
+同时，在团体赛发布包中还提供了有关 FPGA 引脚关系的 Excel 文件，在这个文件中能够更详细地了解管脚与信号的对应关系，大家可以自行阅读。
+
 ## mysoc 的启动过程
 
 目前 mysoc 中具有的设备及其地址映射关系如下：
 
 |序号|名称|地址空间|大小|类型|
 |:---:|:---:|:---:|:---:|:---:|
-|1|Boot ROM|`0x1C00_0000~0x1C00_7fff`|32KB|MEM|
-|2|RAM|`0x1C00_8000~0x1C00_ffff`|32KB|MEM|
-|3|confreg|`0xBFAF_0000~0xBFAF_ffff`|64KB|REG|
+|1|Boot ROM|`0x1c00_0000~0x1c00_7fff`|32KB|MEM|
+|2|RAM|`0x1c00_8000~0x1c00_ffff`|32KB|MEM|
+|3|confreg|`0xbfaf_0000~0xbfaf_ffff`|64KB|REG|
 
 Boot ROM 的地址空间起始位置即为 LoongArch32r 的复位 PC，这就意味着 mycpu 复位后的第一条指令是从 Boot ROM 中取出的。但由于 Boot ROM 是*只读*的，因此我们编写的程序无法在 Boot ROM 中正确运行。也就是说，Boot ROM 中的前几条指令应该负责将程序拷贝到 RAM 中，然后再跳转到 RAM 所在的地址空间执行。
 
 所以我们的程序分成了两个部分，分别在不同的地址空间执行：
 
-- 最开始的几条指令，负责拷贝与跳转，从 Boot ROM 取指，地址空间为 `0x1C00_0000~0x1C00_7fff`
-- 程序的其他指令，从 RAM 取指，地址空间为 `0x1C00_8000~0x1C00_ffff`
+- 最开始的几条指令，负责拷贝与跳转，从 Boot ROM 取指，地址空间为 `0x1c00_0000~0x1c00_7fff`
+- 程序的其他指令，从 RAM 取指，地址空间为 `0x1c00_8000~0x1c00_ffff`
 
-在之前的裸机程序中，为链接器指定的起始地址为 `0x1C00_0000`，如果将代码拷贝到 `0x1C00_8000` 后再执行，所有的**绝对寻址**必将发生错误[^1]。所以现在**需要指定起始地址为** `0x1C00_8000`，确保绝对寻址的指令在代码拷贝后仍然正常工作；同时需要保证最开始的几条指令中只能出现相对寻址且不发生写操作。
+在之前的裸机程序中，为链接器指定的起始地址为 `0x1c00_0000`，如果将代码拷贝到 `0x1c00_8000` 后再执行，所有的**绝对寻址**必将发生错误[^1]。所以现在**需要指定起始地址为** `0x1c00_8000`，确保绝对寻址的指令在代码拷贝后仍然正常工作；同时需要保证最开始的几条指令中只能出现相对寻址且不发生写操作。
 
 ### bootloader
 
@@ -83,7 +156,7 @@ poweroff:
 !!! warning "注意"
     在这里我们使用了绝对跳转指令 `jr`[^3]，但在 Lec 02 中，我们比较了相对跳转与绝对跳转，并且提倡更多地使用相对跳转。那么这里是否能使用相对跳转呢？答案为否。
 
-    这是因为跳转指令执行时，PC 指向的是 Boot ROM 的地址空间，我们想要跳转到 `0x1C00_8XXX` 的位置，如果使用相对跳转，那么执行结束后 PC 的值仅仅是加了 `0x4`，仍然处于 `0x1C00_0XXX`。所以需要首先将 `real_start` 的地址（`0x1C00_8XXX`）加载到 `$t0`，再进行绝对跳转
+    这是因为跳转指令执行时，PC 指向的是 Boot ROM 的地址空间，我们想要跳转到 `0x1c00_8XXX` 的位置，如果使用相对跳转，那么执行结束后 PC 的值仅仅是加了 `0x4`，仍然处于 `0x1c00_0XXX`。所以需要首先将 `real_start` 的地址（`0x1c00_8XXX`）加载到 `$t0`，再进行绝对跳转
 
 #### 汇编指导
 
@@ -141,7 +214,7 @@ SECTIONS
     - `ALIGN(x)` 可以将当前地址对齐
     - `*(section name)` 可以将所有文件中名为 `section name` 的段集合到一起
 
-[^1]: 比如说 `st` 指令写了 `0x1C00_0000~0x1C00_7fff` 之间的地址
-[^2]: 它们的前缀均为 `0x1C00_8`
+[^1]: 比如说 `st` 指令写了 `0x1c00_0000~0x1c00_7fff` 之间的地址
+[^2]: 它们的前缀均为 `0x1c00_8`
 [^3]: `jr` 实际上是一条伪指令，由汇编器展开后为 `jirl`
 [^4]: allocatable 意味着这段代码是运行时加载到内存中的
