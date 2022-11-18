@@ -6,6 +6,7 @@ nav:
     - 'Lec 02 - git 协作与软硬协同': 'lec02/index.md'
     - 'Lec 03 - SOC 搭建': 'lec03/index.md'
     - 'Lec 04 - SOC 上板与系统启动': 'lec04/index.md'
+    - 'Lec 05 - 串口通信': 'lec05/index.md'
     - '杂项':
         - 'Linux 操作系统杂谈': 'misc/linux.md'
         - '对于 lec 02 的一些补充': 'misc/lec02.md'
