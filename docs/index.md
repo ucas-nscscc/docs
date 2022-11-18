@@ -33,3 +33,4 @@ description: 本文档旨在记录每次培训的内容，方便大家进行回�
 + 《计算机系统设计（下册）：基于 FPGA 的 SOC 设计与实现》
 + [spinalHDL 文档](https://spinalhdl.github.io/SpinalDoc-RTD/master/index.html)
 + 龙芯将开源 3 个基于 spinalHDL 的 CPU 核
++ [500 英尺视角的 git 原理讲解](https://www.bilibili.com/video/BV14841187xY/?spm_id_from=333.337.search-card.all.click&vd_source=86cabfbbc4034553dcff05a243d822c0)

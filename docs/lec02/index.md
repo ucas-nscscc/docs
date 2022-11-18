@@ -2,6 +2,10 @@
 
 ## git 协作
 
+!!! info "信息"
+
+    对于 git 有一定使用经验的同学可以参考 `NSCSCC 2023 -> 推荐学习资料 -> `[`500 英尺视角的 git 原理讲解`](https://www.bilibili.com/video/BV14841187xY/?spm_id_from=333.337.search-card.all.click&vd_source=86cabfbbc4034553dcff05a243d822c0) 进一步了解 git 的工作原理。
+
 在过去的课程中，大家使用 git 往往是进行个人项目的版本管理，很少涉及多人协作的场景。而对于“龙芯杯”比赛而言，则需要小组内成员合理分工，并使用 git 进行协作开发。使用 git 的诀窍在于脑海里时刻有一张有向图：每一个结点表示一次 commit，每一个边表示两次 commit 之间的变化。
 
 在这张图里，所有结点的公共祖先都是第一次 commit：
