@@ -1,0 +1,1058 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lec03/">
+      
+      
+        <link rel="next" href="../lec05/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>Lec 04 - SOC 上板与系统启动 - UCAS NSCSCC</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lec-04-soc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="UCAS NSCSCC" class="md-header__button md-logo" aria-label="UCAS NSCSCC" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UCAS NSCSCC
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lec 04 - SOC 上板与系统启动
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="UCAS NSCSCC" class="md-nav__button md-logo" aria-label="UCAS NSCSCC" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    UCAS NSCSCC
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        NSCSCC 2023
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lec01/" class="md-nav__link">
+        Lec 01 - “龙芯杯”大赛介绍
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lec02/" class="md-nav__link">
+        Lec 02 - git 协作与软硬协同
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lec03/" class="md-nav__link">
+        Lec 03 - SOC 搭建
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Lec 04 - SOC 上板与系统启动
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Lec 04 - SOC 上板与系统启动
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#soc" class="md-nav__link">
+    上板测试 SOC
+  </a>
+  
+    <nav class="md-nav" aria-label="上板测试 SOC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wrapper" class="md-nav__link">
+    创建 wrapper
+  </a>
+  
+    <nav class="md-nav" aria-label="创建 wrapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vivado-wrapper" class="md-nav__link">
+    vivado生成 wrapper
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    约束文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysoc" class="md-nav__link">
+    mysoc 的启动过程
+  </a>
+  
+    <nav class="md-nav" aria-label="mysoc 的启动过程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    链接脚本
+  </a>
+  
+    <nav class="md-nav" aria-label="链接脚本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    程序中的节
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lma-vma" class="md-nav__link">
+    节的 LMA 和 VMA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory" class="md-nav__link">
+    MEMORY 指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lma-vma_1" class="md-nav__link">
+    绑定节的 LMA 与 VMA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    启动代码
+  </a>
+  
+    <nav class="md-nav" aria-label="启动代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    拷贝代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    汇编指导
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lec05/" class="md-nav__link">
+        Lec 05 - 串口通信
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          杂项
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          杂项
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/linux/" class="md-nav__link">
+        Linux 操作系统杂谈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/lec02/" class="md-nav__link">
+        对于 lec 02 的一些补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/vivado/" class="md-nav__link">
+        在 Linux 上使用 Vivado 可能遇到的问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/application-qa/" class="md-nav__link">
+        报名问答集锦
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#soc" class="md-nav__link">
+    上板测试 SOC
+  </a>
+  
+    <nav class="md-nav" aria-label="上板测试 SOC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wrapper" class="md-nav__link">
+    创建 wrapper
+  </a>
+  
+    <nav class="md-nav" aria-label="创建 wrapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vivado-wrapper" class="md-nav__link">
+    vivado生成 wrapper
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    约束文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysoc" class="md-nav__link">
+    mysoc 的启动过程
+  </a>
+  
+    <nav class="md-nav" aria-label="mysoc 的启动过程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    链接脚本
+  </a>
+  
+    <nav class="md-nav" aria-label="链接脚本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    程序中的节
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lma-vma" class="md-nav__link">
+    节的 LMA 和 VMA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory" class="md-nav__link">
+    MEMORY 指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lma-vma_1" class="md-nav__link">
+    绑定节的 LMA 与 VMA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    启动代码
+  </a>
+  
+    <nav class="md-nav" aria-label="启动代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    拷贝代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    汇编指导
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lec-04-soc">Lec 04 - SOC 上板与系统启动</h1>
+<h2 id="soc">上板测试 SOC</h2>
+<p>经过上一讲的学习，我们已经搭建好 SOC 的结构，想要让我们的 SOC 能够综合、实现并最终生成比特流文件，我们还缺少两个文件：项目 wrapper 文件和约束文件。下面分别进行介绍。</p>
+<h3 id="wrapper">创建 wrapper</h3>
+<p>在 <code>mysoc/mysoc.srcs/sources_1/bd/design_1/synth</code> 这个目录下，我们能找到名为 <code>design_1.v</code> 的文件，可以看到其中的 <code>design_1</code> 模块实例化了所有放到 BD 中的 IP ：</p>
+<p><img alt="" src="../img/lec04/design_1.png" /></p>
+<p>然而在现在这个状态下，整个模块是无法综合的。我们需要写一个 wrapper 作为顶层文件。wrapper 需要包含以下几点要素：</p>
+<ul>
+<li>设计顶层 wrapper 模块的 input、output 信号，使它们在信号名和位宽上和约束文件中的内容匹配；
+    <div class="highlight"><span class="filename">mysoc_top.v</span><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">mysoc_top</span><span class="p">(</span>
+<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="c1">// 使用我们习惯的方式命名</span>
+<span class="w">    </span><span class="c1">// 而不是 design_1 中生成的 led_0、uart_rtl_xxxx</span>
+<span class="w">    </span><span class="c1">// 方便与约束文件的信号名匹配</span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">15</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">led</span><span class="p">,</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">);</span>
+<span class="p">...</span>
+<span class="k">endmodule</span>
+</code></pre></div></li>
+<li>实例化 <code>design_1</code>，并对 <code>design_1</code> 的输入输出信号做必要处理。
+    <div class="highlight"><span class="filename">mysoc_top.v</span><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">mysoc_top</span><span class="p">(</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">);</span>
+<span class="w">    </span><span class="n">design_1</span><span class="w"> </span><span class="n">design_1_u</span><span class="p">(</span>
+<span class="w">        </span><span class="p">.</span><span class="n">clk_in1_0</span><span class="w">   </span><span class="p">(</span><span class="n">clk</span><span class="p">),</span>
+<span class="w">        </span><span class="p">...</span>
+<span class="w">        </span><span class="p">.</span><span class="n">led_0</span><span class="w">       </span><span class="p">(</span><span class="n">led</span><span class="p">),</span>
+<span class="w">        </span><span class="p">...</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="k">endmodule</span>
+</code></pre></div></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>由于当前 mysoc 结构较为简单，没有复杂的外设，因此在 <code>mysoc_top</code> 中我们只进行简单的连线即可。但随着 mysoc 中外设复杂度的提升，可能有一些外设接口类型为 <code>inout</code>。这时，由于在 Block Design 中使用 Make External 引出的信号只能是单向的，从而无法满足实际要求。对于这种情况，wrapper 中还需手动处理相应信号。</p>
+</div>
+<p>通过在 Vivado 中 Add Sources，我们将这个文件添加到工程中来。它将被自动识别为顶层文件。</p>
+<p><img alt="" src="../img/lec04/mysoc_top.png" /></p>
+<h4 id="vivado-wrapper">vivado生成 wrapper</h4>
+<p>当然，也可以由 Vivado 先替我们生成一个 wrapper 文件，实例化好 <code>design_1</code> 模块，我们再在其中做修改。因为是 Vivado 生成的，所以不可避免还会出现信号名复杂、信号待处理的情况，还需要我们手动修改，只不过它帮助我们例化好模块了，在其基础上修改可以提高一定的代码准确度。</p>
+<p>按照下图进行操作：
+<img alt="" src="../img/lec04/gen_wrapper.png" /></p>
+<p><img alt="" src="../img/lec04/vivado_wrapper.png" /></p>
+<h3 id="_1">约束文件</h3>
+<p>对于一个完整的 FPGA 设计，还需要有时序约束和管脚约束。这些约束都体现在以 <code>.xdc</code> 为后缀的约束文件当中。这里以体系结构实验环境提供的约束文件（<code>mycpu_env/soc_axi/run_vivado/constraints/soc_lite_top.xdc</code>）为例来简单讲解。</p>
+<ul>
+<li>
+<p><strong>时序约束</strong>，比如设置 SOC 时钟频率，上升沿、下降沿位置等。下面这行约束说明我们的时钟周期是 10ns，上升沿在 0ns 处，下降沿在 5ns 处，这条属性绑定在 clk 信号上。
+    <div class="highlight"><span class="filename">soc_lite_top.xdc</span><pre><span></span><code>create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>管脚约束</strong>，把信号和 FPGA 上的引脚绑定起来，规定管脚的电平标准。</p>
+<p>下面约束表示把 <code>led[0]</code> 信号绑定到 <code>K23</code> 引脚上。</p>
+<div class="highlight"><span class="filename">soc_lite_top.xdc</span><pre><span></span><code>set_property PACKAGE_PIN K23 [get_ports {led[0]}]
+set_property PACKAGE_PIN J21 [get_ports {led[1]}]
+set_property PACKAGE_PIN H23 [get_ports {led[2]}]
+...
+</code></pre></div>
+<p>下面约束表示 <code>led[]</code> 信号所在引脚的电气标准为LVCMOS33。</p>
+<div class="highlight"><span class="filename">soc_lite_top.xdc</span><pre><span></span><code>set_property IOSTANDARD LVCMOS33 [get_ports clk]
+set_property IOSTANDARD LVCMOS33 [get_ports resetn]
+set_property IOSTANDARD LVCMOS33 [get_ports {led[*]}]
+...
+</code></pre></div>
+<p>我们需要确保 <code>get_ports</code> 后的信号和 SOC 顶层文件的输入输出端口匹配。</p>
+</li>
+</ul>
+<p>请注意，约束条目是有先后顺序的，每一行是一条指令，Vivado 按照行序从前往后读取，所以越后面的指令，其优先级越高。当有 2 条指令约束同一个东西时，后面指令会因为执行的比较晚，而覆盖前一条目。推荐的 <code>.xdc</code> 文件组织方式一般是把时序约束放在前面，而把管脚约束放在后面。同时指令的语法要求严格，不要漏掉或多添加空格，否则会警告“不支持的命令”，有需要的同学可以自行查找资料。</p>
+<p>体系结构课提供的约束文件仅包含 Lec 02 中提到的简单外设，更多如 <code>UART</code>、<code>SPI flash</code> 的约束信息也不需要同学们自己来写，可以在大赛发布包中的约束文件中找到。</p>
+<p>同时，在团体赛发布包中还提供了有关 FPGA 引脚关系的 Excel 文件，在这个文件中能够更详细地了解管脚与信号的对应关系，大家可以自行阅读。</p>
+<h2 id="mysoc">mysoc 的启动过程</h2>
+<p>目前 mysoc 中具有的设备及其地址映射关系如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">名称</th>
+<th align="center">地址空间</th>
+<th align="center">大小</th>
+<th align="center">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">Boot ROM</td>
+<td align="center"><code>0x1c00_0000~0x1c00_7fff</code></td>
+<td align="center">32KB</td>
+<td align="center">MEM</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">RAM</td>
+<td align="center"><code>0x1c00_8000~0x1c00_ffff</code></td>
+<td align="center">32KB</td>
+<td align="center">MEM</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">confreg</td>
+<td align="center"><code>0xbfaf_0000~0xbfaf_ffff</code></td>
+<td align="center">64KB</td>
+<td align="center">REG</td>
+</tr>
+</tbody>
+</table>
+<p>Boot ROM 的地址空间起始位置即为 LoongArch32r 的复位 PC，这就意味着 mycpu 复位后的第一条指令是从 Boot ROM 中取出的。但由于 Boot ROM 是<em>只读</em>的，因此我们编写的程序无法在 Boot ROM 中正确运行。也就是说，Boot ROM 中的前几条指令应该负责将程序中<strong>需要初始化且带有“写”属性</strong>的数据节（section）拷贝到 RAM 中。</p>
+<h3 id="_2">链接脚本</h3>
+<p>我们通过修改链接脚本来对裸机程序重新进行布局。首先需要先分析程序中现有的 sectoin。</p>
+<h4 id="_3">程序中的节</h4>
+<p>目前裸机程序中的节信息可以通过 <code>readelf</code> 命令查看：</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>loongarch32r-linux-gnusf-readelf<span class="w"> </span>-a<span class="w"> </span>build/main.elf
+...
+Section<span class="w"> </span>Headers:
+<span class="w">  </span><span class="o">[</span>Nr<span class="o">]</span><span class="w"> </span>Name<span class="w">              </span>Type<span class="w">            </span>Addr<span class="w">     </span>Off<span class="w">    </span>Size<span class="w">   </span>ES<span class="w"> </span>Flg<span class="w"> </span>Lk<span class="w"> </span>Inf<span class="w"> </span>Al
+<span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="m">0</span><span class="o">]</span><span class="w">                   </span>NULL<span class="w">            </span><span class="m">00000000</span><span class="w"> </span><span class="m">000000</span><span class="w"> </span><span class="m">000000</span><span class="w"> </span><span class="m">00</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">  </span><span class="m">0</span>
+<span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span>.text<span class="w">             </span>PROGBITS<span class="w">        </span>1c000000<span class="w"> </span><span class="m">004000</span><span class="w"> </span>000a28<span class="w"> </span><span class="m">00</span><span class="w">  </span>AX<span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">  </span><span class="m">4</span>
+<span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>.got<span class="w">              </span>PROGBITS<span class="w">        </span>1c000a28<span class="w"> </span>004a28<span class="w"> </span>00001c<span class="w"> </span><span class="m">04</span><span class="w">  </span>WA<span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">  </span><span class="m">4</span>
+<span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="m">3</span><span class="o">]</span><span class="w"> </span>.data<span class="w">             </span>PROGBITS<span class="w">        </span>1c008000<span class="w"> </span><span class="m">008000</span><span class="w"> </span><span class="m">000090</span><span class="w"> </span><span class="m">00</span><span class="w">  </span>WA<span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">  </span><span class="m">4</span>
+<span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="m">4</span><span class="o">]</span><span class="w"> </span>.eh_frame<span class="w">         </span>PROGBITS<span class="w">        </span>1c008090<span class="w"> </span><span class="m">008090</span><span class="w"> </span><span class="m">000460</span><span class="w"> </span><span class="m">00</span><span class="w">  </span>WA<span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">  </span><span class="m">4</span>
+<span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="m">5</span><span class="o">]</span><span class="w"> </span>.comment<span class="w">          </span>PROGBITS<span class="w">        </span><span class="m">00000000</span><span class="w"> </span>0084f0<span class="w"> </span><span class="m">000011</span><span class="w"> </span><span class="m">01</span><span class="w">  </span>MS<span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">  </span><span class="m">1</span>
+<span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="m">6</span><span class="o">]</span><span class="w"> </span>.symtab<span class="w">           </span>SYMTAB<span class="w">          </span><span class="m">00000000</span><span class="w"> </span><span class="m">008504</span><span class="w"> </span><span class="m">000320</span><span class="w"> </span><span class="m">10</span><span class="w">      </span><span class="m">7</span><span class="w">  </span><span class="m">25</span><span class="w">  </span><span class="m">4</span>
+<span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="m">7</span><span class="o">]</span><span class="w"> </span>.strtab<span class="w">           </span>STRTAB<span class="w">          </span><span class="m">00000000</span><span class="w"> </span><span class="m">008824</span><span class="w"> </span><span class="m">000215</span><span class="w"> </span><span class="m">00</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">  </span><span class="m">1</span>
+<span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="m">8</span><span class="o">]</span><span class="w"> </span>.shstrtab<span class="w">         </span>STRTAB<span class="w">          </span><span class="m">00000000</span><span class="w"> </span>008a39<span class="w"> </span>00003f<span class="w"> </span><span class="m">00</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">  </span><span class="m">1</span>
+...
+</code></pre></div>
+<p>上面的输出中共显示了 8 个有效的 section，运行程序只需要关心 <code>.text</code>，<code>.got</code> 和 <code>.data</code> 即可。观察到 <code>Flg</code> 一列显示了各个段的读写属性，其中 <code>.text</code> 是只读的，<code>.got</code> 和 <code>.data</code> 都是可读写的，而根据 <code>.got</code> 的作用，程序不会对它进行写操作，可以认为它也是只读的。因此，对于 <code>.text</code> 和 <code>.got</code> 可以保留在 ROM 中，而 <code>.data</code> 必须移动到 RAM 中。</p>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>上面输出的表格中没有我们熟悉的 <code>.bss</code>，这是因为目前程序比较简单，没有使用未初始化的全局变量。但是在链接脚本中需要将其显式地写出,同时在启动代码中清除 <code>.bss</code> 节的内容,为未来的程序做准备。</p>
+</div>
+<h4 id="lma-vma">节的 LMA 和 VMA</h4>
+<p>对于一个节来说，它具有两个地址：加载地址（LMA, Load Memory Address）和虚拟地址（VMA, Virtual Memory Address）。如果一个变量所在的 LMA 为 0x1c000030，而 VMA 为 0x1c008030，那么表示它在系统初始化时位于地址 0x1c000030，而之后想要访问这个变量则通过地址 0x1c008030。</p>
+<p>为什么要区分这两个地址呢？在 mysoc 中，程序的所有节都被提取到 <code>.coe</code> 文件中，并固化到了 Boot ROM，因此所有节的 LMA 都落在 Boot ROM 对应的地址段 <code>0x1c000xxx</code> 中。对于 <code>.text</code> 和 <code>.got</code> 节，由于它是只读的，因此无需将其拷贝到 RAM，从而 VMA = LVM；而对于 <code>.data</code> 和 <code>.bss</code> 节的数据，我们需要在启动代码中将其拷贝到 RAM 中，因此它们的 VMA 落在 RAM 对应的地址段 <code>0x1c008xxx</code>。</p>
+<table>
+<thead>
+<tr>
+<th align="center">节名称</th>
+<th align="center">读写属性</th>
+<th align="center">LMA</th>
+<th align="center">VMA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>.text</code></td>
+<td align="center">只读</td>
+<td align="center"><code>0x1c000xxx</code></td>
+<td align="center"><code>0x1c000xxx</code></td>
+</tr>
+<tr>
+<td align="center"><code>.got</code></td>
+<td align="center">读写</td>
+<td align="center"><code>0x1c000xxx</code></td>
+<td align="center"><code>0x1c000xxx</code></td>
+</tr>
+<tr>
+<td align="center"><code>.date</code></td>
+<td align="center">读写</td>
+<td align="center"><code>0x1c000xxx</code></td>
+<td align="center"><code>0x1c008xxx</code></td>
+</tr>
+<tr>
+<td align="center"><code>.bss</code></td>
+<td align="center">读写</td>
+<td align="center"><code>0x1c000xxx</code></td>
+<td align="center"><code>0x1c008xxx</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="memory">MEMORY 指令</h4>
+<p>在链接脚本中使用 MEMORY 指令可以为地址空间（memory region）定义名称和读写属性，它的语法为：</p>
+<div class="highlight"><pre><span></span><code>MEMORY
+{
+    &lt;name&gt; [(&lt;attr&gt;)] : ORIGIN = &lt;origin&gt;, LENGTH = &lt;len&gt;
+    &lt;name&gt; [(&lt;attr&gt;)] : ORIGIN = &lt;origin&gt;, LENGTH = &lt;len&gt;
+    ...
+}
+</code></pre></div>
+<ul>
+<li><code>&lt;name&gt;</code> 表示某个地址空间的名称</li>
+<li><code>&lt;attr&gt;</code> 是可选项，表示该地址段的属性</li>
+<li><code>&lt;origin&gt;</code> 指定了该地址空间的起始地址</li>
+<li><code>&lt;length&gt;</code> 指定了该地址空间的长度</li>
+</ul>
+<p>对于 mysoc 的地址空间布局，可以定义如下：</p>
+<div class="highlight"><span class="filename">mysoc.ld</span><pre><span></span><code>MEMORY
+{
+    ROM (rx) : ORIGIN = 0x1c000000, LENGTH = 32K
+    RAM (rw) : ORIGIN = 0x1c008000, LENGTH = 32K
+}
+</code></pre></div>
+<p>这里我们将地址空间的布局单独存储到了文件 <code>mysoc.ld</code> 中，在 <code>bare-metal.ld</code> 中，可以通过 <code>INCLUDE</code> 指令添加包含的文件：</p>
+<div class="highlight"><span class="filename">bare-metal.ld</span><pre><span></span><code>INCLUDE mysoc.ld
+ENTRY(_start)
+...
+</code></pre></div>
+<h4 id="lma-vma_1">绑定节的 LMA 与 VMA</h4>
+<p>在链接脚本中对于某个节的 LMA 和 VMA 进行绑定的方法有很多种，这里只展示一种：</p>
+<div class="highlight"><pre><span></span><code>&lt;section&gt; : [AT(&lt;lma&gt;)]
+{
+　　...
+} [&gt;&lt;region&gt;]
+</code></pre></div>
+<ul>
+<li><code>&lt;section&gt;</code> 为某个节的名称</li>
+<li><code>AT(&lt;lma&gt;)</code> 为可选项，用于绑定 LMA，<code>&lt;lma&gt;</code> 为具体想要绑定的地址</li>
+<li><code>[&gt;&lt;region&gt;]</code> 为可选项，用于绑定 VMA，<code>&lt;region&gt;</code> 为一个通过 <code>MEMORY</code> 指令定义的地址空间名称</li>
+</ul>
+<p>对于 mysoc 的地址空间布局和裸机程序分节，可以在链接脚本中做如下绑定：</p>
+<div class="highlight"><span class="filename">bare-metal.ld</span><pre><span></span><code>SECTIONS
+{
+    .text : {
+        *(entry)
+        *(.text)
+    } &gt; ROM
+    .got : {
+        *(.got)
+    } &gt; ROM
+    .rodata : {
+        *(.rodata)
+        __rodata_end = .;
+    } &gt; ROM
+
+    .data : AT(__rodata_end) ALIGN(0x4) {
+        __data_start = .;
+        *(.data)
+    } &gt; RAM
+    __data_size = SIZEOF(.data);
+    __data_load_start = LOADADDR(.data);
+    .bss : ALIGN(0x4) {
+        __bss_start = .;
+        *(.bss)
+        __bss_end = .;
+    } &gt; RAM
+}
+</code></pre></div>
+<p>上面的链接脚本使用了一些关键字：</p>
+<ul>
+<li><code>ALIGN(&lt;alignment&gt;)</code>：设置整个段的对齐字节数</li>
+<li><code>SIZEOF(&lt;section&gt;)</code>：获取某个段的大小</li>
+<li><code>LOADADDR(&lt;section&gt;)</code>：获取某个段的 LMA</li>
+</ul>
+<p>可以在链接后的 elf 文件中找到上面链接脚本中标号的值：</p>
+<div class="highlight"><pre><span></span><code>Symbol table &#39;.symtab&#39; contains 52 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+    25: 00000090     0 NOTYPE  GLOBAL DEFAULT  ABS __data_size
+    29: 1c000a44     0 NOTYPE  GLOBAL DEFAULT    2 __rodata_end
+    32: 1c000a44     0 NOTYPE  GLOBAL DEFAULT  ABS __data_load_start
+    33: 1c008090     0 NOTYPE  GLOBAL DEFAULT    4 __bss_end
+    41: 1c008090     0 NOTYPE  GLOBAL DEFAULT    4 __bss_start
+    50: 1c008000     0 NOTYPE  GLOBAL DEFAULT    3 __data_start
+</code></pre></div>
+<p>其中 <code>__rodata_end</code> 等于 <code>__data_load_start</code> 都指向了 Boot ROM，其他标号都指向了 RAM。</p>
+<h3 id="_4">启动代码</h3>
+<p>相较于 Lec 02 中的启动代码，现在它需要多做一件事，即将 <code>__data_load_start</code> 到 <code>__data_load_start + __data_size</code> 之间的 <code>.data</code> 节从 Boot ROM 拷贝到 <code>__data_start</code> 到 <code>__data_start + __data_size</code> 对应的 RAM 中。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">start.S</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">.section</span><span class="w"> </span><span class="n">entry</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ax&quot;</span>
+<span class="n">.globl</span><span class="w"> </span>_<span class="n">start</span>
+<span class="n">.type</span><span class="w"> </span>_<span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">function</span>
+
+_<span class="n">start</span><span class="o">:</span>
+<span class="w">    </span><span class="o">/*</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">.data</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">RAM</span><span class="w"> </span><span class="o">*/</span>
+<span class="w">    </span><span class="n">la</span><span class="w">  </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span>__<span class="n">data_start</span>
+<span class="w">    </span><span class="n">la</span><span class="w">  </span><span class="o">$</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span>__<span class="n">data_size</span>
+<span class="w">    </span><span class="n">add.w</span><span class="w">   </span><span class="o">$</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t1</span>
+<span class="w">    </span><span class="n">la</span><span class="w">  </span><span class="o">$</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span>__<span class="n">data_load_start</span>
+<span class="m">1</span><span class="o">:</span>
+<span class="w">    </span><span class="n">beq</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="n">f</span>
+<span class="w">    </span><span class="n">ld.w</span><span class="w">    </span><span class="o">$</span><span class="n">t3</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="n">st.w</span><span class="w">    </span><span class="o">$</span><span class="n">t3</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="n">addi.w</span><span class="w">  </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="m">4</span>
+<span class="w">    </span><span class="n">addi.w</span><span class="w">  </span><span class="o">$</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span>
+<span class="w">    </span><span class="n">b</span><span class="w">   </span><span class="m">1</span><span class="n">b</span>
+<span class="m">1</span><span class="o">:</span>
+<span class="w">    </span><span class="o">/*</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="n">.bss</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="o">*/</span>
+<span class="w">    </span><span class="n">la</span><span class="w">  </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span>__<span class="n">bss_start</span>
+<span class="w">    </span><span class="n">la</span><span class="w">  </span><span class="o">$</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span>__<span class="n">bss_end</span>
+<span class="m">2</span><span class="o">:</span>
+<span class="w">    </span><span class="n">beq</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="n">f</span>
+<span class="w">    </span><span class="n">st.b</span><span class="w">    </span><span class="o">$</span><span class="n">zero</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="n">addi.w</span><span class="w">  </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="n">b</span><span class="w">   </span><span class="m">2</span><span class="n">b</span>
+<span class="m">2</span><span class="o">:</span>
+<span class="w">    </span><span class="o">/*</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">jump</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">*/</span>
+<span class="w">    </span><span class="n">la</span><span class="w">  </span><span class="o">$</span><span class="n">sp</span><span class="p">,</span><span class="w"> </span><span class="n">bootstacktop</span>
+<span class="w">    </span><span class="n">bl</span><span class="w">  </span><span class="n">main</span>
+
+<span class="n">poweroff</span><span class="o">:</span>
+<span class="w">    </span><span class="n">b</span><span class="w">   </span><span class="n">poweroff</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="_5">拷贝代码</h4>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">boot.S</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code>_<span class="n">start</span><span class="o">:</span>
+<span class="w">    </span><span class="o">/*</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">.data</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">RAM</span><span class="w"> </span><span class="o">*/</span>
+<span class="w">    </span><span class="n">la</span><span class="w">  </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span>__<span class="n">data_start</span>
+<span class="w">    </span><span class="n">la</span><span class="w">  </span><span class="o">$</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span>__<span class="n">data_size</span>
+<span class="w">    </span><span class="n">add.w</span><span class="w">   </span><span class="o">$</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t1</span>
+<span class="w">    </span><span class="n">la</span><span class="w">  </span><span class="o">$</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span>__<span class="n">data_load_start</span>
+<span class="m">1</span><span class="o">:</span>
+<span class="w">    </span><span class="n">beq</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="n">f</span>
+<span class="w">    </span><span class="n">ld.w</span><span class="w">    </span><span class="o">$</span><span class="n">t3</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="n">st.w</span><span class="w">    </span><span class="o">$</span><span class="n">t3</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="n">addi.w</span><span class="w">  </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="m">4</span>
+<span class="w">    </span><span class="n">addi.w</span><span class="w">  </span><span class="o">$</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="o">$</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span>
+<span class="w">    </span><span class="n">b</span><span class="w">   </span><span class="m">1</span><span class="n">b</span>
+<span class="m">1</span><span class="o">:</span>
+</code></pre></div></td></tr></table></div>
+<p>代码的第 7 ~ 18 行完成了拷贝工作。<code>__data_start</code> 和 <code>__data_size</code> 是两个链接脚本中的标号，分别指向了 <code>.data</code> 的 VMA 和大小。而后将 <code>__data_start</code> 加上 <code>__data_size</code> 得到 <code>.data</code> 节在 RAM 中的结束地址。<code>$t2</code> 的值为 <code>__data_load_start</code>，也就是得到了 Boot ROM 中的开始位置。</p>
+<p>第 11 ～ 18 行之间的循环先将 Boot ROM 中的数据 load 出来，然后再存入 RAM 中。</p>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>注意到拷贝循环中 <code>$t0</code> 和 <code>$t2</code> 的增量均为 4，并且 <code>ld/st</code> 指令访存宽度也均为 4B。这样做是为了提高拷贝速度，也是在链接脚本中将 <code>.data</code> 对齐到 4 字节的原因。</p>
+</div>
+<h4 id="_6">汇编指导</h4>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">start.S</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">.section</span><span class="w"> </span><span class="n">entry</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ax&quot;</span>
+<span class="n">.globl</span><span class="w"> </span>_<span class="n">start</span>
+<span class="n">.type</span><span class="w"> </span>_<span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">function</span>
+</code></pre></div></td></tr></table></div>
+<p>除了代码发生改变，<code>start.S</code> 的 1 ～ 3 行也发生了一些变化：</p>
+<ul>
+<li>首先，使用 <code>.secion entry</code> 创建了一个名为 <code>entry</code> 的段，这样我们就可以在链接脚本中手动地将该段添加到所有代码的最前面</li>
+<li>其次 ，使用 <code>.type _start, @function</code> 声明 <code>_start</code> 是一个函数，这样在反汇编文件中仍然能看到 <code>_start</code></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>
